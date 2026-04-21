@@ -1,5 +1,6 @@
 "use client";
 import CarCard from "@/components/CarCard";
+import RightSidebar from "@/components/RightSidebar";
 
 export default function AvailableStocks({
   cars = [],
@@ -14,7 +15,7 @@ export default function AvailableStocks({
         <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr_260px] gap-4">
 
           {/* LEFT SIDEBAR */}
-          <div className="hidden lg:block bg-white rounded-xl p-4">
+          {/* <div className="hidden lg:block bg-white rounded-xl p-4">
             <h3 className="font-semibold mb-3 text-[20px]">Search By Brand</h3>
             <hr />
             <br/>
@@ -22,13 +23,15 @@ export default function AvailableStocks({
             <div className="space-y-2 text-sm">
               {brands.map((b: any) => (
                 <div key={b.id} className="flex justify-start align-items-center">
-                    <span className="pe-2 w-8 pt-0.5"><img src={b.img}/></span>
+                    <span className="pe-2 w-8 pt-0.5"><img src={b.logo_url}/></span>
                   <span className="font-[500]">{b.name}</span>
                   <span className="text-gray-400 ps-2">({b.count})</span>
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
+
+          <RightSidebar brands={brands} />
 
           {/* CENTER GRID */}
 

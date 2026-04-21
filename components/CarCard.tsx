@@ -11,13 +11,39 @@ export default function CarCard({ car }: any) {
           className="w-full h-full object-cover rounded-lg"
         />
 
-        {car.reserved && (
+        {car.status !== "available" && (
+        <div className="absolute top-0 left-0 overflow-hidden w-[120px] h-[120px]">
+
+            <span
+            className={`absolute top-[22px] left-[-44px] w-[150px] text-center rotate-[-45deg] text-white text-xs font-semibold py-1 shadow-md
+            ${
+                car.status === "reserved"
+                ? "bg-green-600"
+                : car.status === "sold"
+                ? "bg-red-600"
+                : ""
+            }`}
+            >
+            {car.status.toUpperCase()}
+            </span>
+
+        </div>
+        )}
+        {/* {car.reserved && (
         <div className="absolute top-0 left-0 overflow-hidden w-[120px] h-[120px]">
             <span className="absolute top-[20px] left-[-40px] rotate-[-45deg] bg-green-600 text-white text-xs font-semibold px-10 py-1 shadow-md">
             RESERVED
             </span>
         </div>
         )}
+
+        {car.sold && (
+        <div className="absolute top-0 left-0 overflow-hidden w-[120px] h-[120px]">
+            <span className="absolute top-[20px] left-[-40px] rotate-[-45deg] bg-green-600 text-white text-xs font-semibold px-10 py-1 shadow-md">
+            SOLD
+            </span>
+        </div>
+        )} */}
       </div>
 
       {/* Title */}
@@ -34,8 +60,8 @@ export default function CarCard({ car }: any) {
 
       {/* Specs */}
       <div className="flex justify-between text-[13px] mt-2 text-gray-600">
-        <span className="flex items-center"><span className="pe-1"><img src="/engine.png"/> </span>{car.cc} CC</span>
-        <span className="flex items-center"><span className="pe-1"><img src="/mileage.png"/> </span>{car.km} KM</span>
+        <span className="flex items-center"><span className="pe-1"><img src="/engine.png"/> </span>{car.cc}</span>
+        <span className="flex items-center"><span className="pe-1"><img src="/mileage.png"/> </span>{car.km}</span>
       </div>
 
       <div className="flex justify-between text-[13px] mt-1 text-gray-600">

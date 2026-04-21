@@ -3,8 +3,10 @@ import Hero from "@/components/Hero";
 import BrowseByType from "@/components/BrowseByType";
 import PromoSection from "@/components/PromoSection";
 import AvailableStocks from "@/components/AvailableStocks";
-import { mockBrands, mockCountries } from "@/data/mockData";
+import { mockCountries } from "@/data/mockData";
 import Footer from "@/components/Footer";
+import { getBrands } from "@/lib/api";
+import { getVehicles } from "@/lib/api";
 
 const mockCars = [
   {
@@ -119,26 +121,24 @@ const mockCars = [
   // },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+
+  const brands = await getBrands();
+  const formattedCars = await getVehicles();
+
   return (
     <div className="relative">
 
-      {/* Header overlay */}
-      <div className="absolute top-0 left-0 w-full z-50">
-        <Header />
-      </div>
       {/* Hero (background) */}
       <Hero />
 
       <BrowseByType />
 
       <PromoSection />
-      <AvailableStocks cars={mockCars} brands={mockBrands}
+      <AvailableStocks cars={formattedCars} brands={brands}
       countries={mockCountries}/>
 
       <Footer />
-
-      
 
     </div>
   );

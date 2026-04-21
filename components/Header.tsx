@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Menu, X, Search, Phone, MapPin, User } from "lucide-react";
 import JSTTime from "@/components/JSTTime";
 
-export default function Header() {
+export default function Header({ totalStock = 0 }: any) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <Search size={20} className="opacity-80" />
           <span>
-            Total In Stock: <span className="font-semibold">2,381</span>
+            Total In Stock:{" "} <span className="font-semibold">{totalStock.toLocaleString()}</span>
           </span>
         </div>
 
