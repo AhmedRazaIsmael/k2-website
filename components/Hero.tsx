@@ -1,6 +1,14 @@
 "use client";
 
-export default function Hero() {
+export default function Hero({
+  brands = [],
+  models = [],
+  steering = [],
+  bodyTypes = [],
+  drives = [],
+  transmissions = [],
+}: any) {
+
   return (
     <section className="relative w-full min-h-[725px] py-10">
 
@@ -41,46 +49,76 @@ export default function Hero() {
           <div className="space-y-3">
 
             <select className="w-full p-2 rounded bg-white text-black text-sm">
-              <option>Makers</option>
+              <option value="">Makers</option>
+              {brands.map((b: any) => (
+                    <option key={b.id} value={b.slug}>
+                    {b.name}
+                    </option>
+                ))}
             </select>
 
             <select className="w-full p-2 rounded bg-white text-black text-sm">
-              <option>Models</option>
+              <option value="">Models</option>
+              {models.map((b: any) => (
+                    <option key={b.id} value={b.slug}>
+                    {b.name}
+                    </option>
+                ))}
             </select>
 
             <select className="w-full p-2 rounded bg-white text-black text-sm">
-              <option>Steering</option>
+              <option value="">Steering</option>
+              {steering.map((b: any) => (
+                    <option key={b.id} value={b.slug}>
+                    {b.value}
+                    </option>
+                ))}
             </select>
 
             <select className="w-full p-2 rounded bg-white text-black text-sm">
-              <option>Body Type</option>
+              <option value="">Body Type</option>
+              {bodyTypes.map((b: any) => (
+                    <option key={b.id} value={b.slug}>
+                    {b.value}
+                    </option>
+                ))}
             </select>
 
             <select className="w-full p-2 rounded bg-white text-black text-sm">
-              <option>Drive</option>
+              <option value="">Drive</option>
+              {drives.map((b: any) => (
+                    <option key={b.id} value={b.slug}>
+                    {b.value}
+                    </option>
+                ))}
             </select>
 
             {/* Row */}
             <div className="flex gap-2">
               <select className="w-1/2 p-2 rounded bg-white text-black text-sm">
-                <option>Start Year</option>
+                <option value="">Start Year</option>
               </select>
               <select className="w-1/2 p-2 rounded bg-white text-black text-sm">
-                <option>End Year</option>
+                <option value="">End Year</option>
               </select>
             </div>
 
             <div className="flex gap-2">
               <select className="w-1/2 p-2 rounded bg-white text-black text-sm">
-                <option>Price From</option>
+                <option value="">Price From</option>
               </select>
               <select className="w-1/2 p-2 rounded bg-white text-black text-sm">
-                <option>Price To</option>
+                <option value="">Price To</option>
               </select>
             </div>
 
             <select className="w-full p-2 rounded bg-white text-black text-sm">
-              <option>Transmission</option>
+              <option value="">Transmission</option>
+              {transmissions.map((b: any) => (
+                    <option key={b.id} value={b.slug}>
+                    {b.value}
+                    </option>
+                ))}
             </select>
 
             {/* Button */}

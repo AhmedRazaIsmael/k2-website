@@ -1,6 +1,7 @@
 "use client";
 import CarCard from "@/components/CarCard";
 import RightSidebar from "@/components/RightSidebar";
+import Link from "next/link";
 
 export default function AvailableStocks({
   cars = [],
@@ -50,9 +51,13 @@ export default function AvailableStocks({
             </div>
 
             <div className="mt-6">
-                <button className="w-full bg-[#6fa25a] hover:bg-green-700 text-white py-3 rounded-lg text-sm font-medium transition">
-                    See More
-                </button>
+                
+                <Link
+                href={`/cars-in-stock`}
+                className="block w-full text-center bg-[#6fa25a] text-[#fff] py-3 rounded-lg hover:bg-green-700 hover:text-white transition text-sm font-medium transition"
+                >
+                See More
+                </Link>
             </div>
 
             <h2 className="text-[38px] font-bold py-8 text-center md:text-left uppercase">Clearance Sale</h2>

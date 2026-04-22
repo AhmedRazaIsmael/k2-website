@@ -1,31 +1,21 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-import {
-  Car,
-  Truck,
-  Bus,
-  CarFront,
-  CarTaxiFront,
-} from "lucide-react";
+export default function BrowseByType({ types = [] }: any) {
 
-const types = [
-  { name: "SEDAN", icon: Car },
-  { name: "HATCHBACK", icon: CarFront },
-  { name: "COUPE", icon: CarTaxiFront },
-  { name: "PICKUP", icon: Truck },
-  { name: "STATIONWAGON", icon: Bus },
-  { name: "SUV", icon: Car },
-  { name: "LIGHT TRUCK", icon: Truck },
-  { name: "PICKUP", icon: Truck },
-  { name: "STATIONWAGON", icon: Bus },
-];
+    const pathname = usePathname();
+    const [swiperKey, setSwiperKey] = useState(0);
+    useEffect(() => {
+    setSwiperKey(prev => prev + 1);
+    }, [pathname]);
 
-export default function BrowseByType() {
   return (
     <section className="pb-10">
 
@@ -62,7 +52,10 @@ export default function BrowseByType() {
 
         {/* Swiper */}
         <Swiper
+          key={swiperKey}
           modules={[Navigation, Autoplay]}
+          observer={true}
+          observeParents={true}
           spaceBetween={16}
           grabCursor={true}
           loop={true}
@@ -83,18 +76,25 @@ export default function BrowseByType() {
             1280: { slidesPerView: 7 },
           }}
         >
-          {types.map((type, index) => {
-            const Icon = type.icon;
+          {types.map((type: any) => {
+            // const Icon = type.icon;
 
             return (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={type.id}>
+                <Link href={`/cars-in-stock?body-type=${type.slug}`} prefetch>
                 <div className="bg-white rounded-xl border border-gray-300 py-3 flex flex-col items-center justify-center hover:shadow- sm transition h-[120px]">
-                  <Icon size={100} className="text-gray-700" strokeWidth={1.5} />
+                  {/* <Icon size={100} className="text-gray-700" strokeWidth={1.5} /> */}
+                  <img
+                    src={type.image}
+                    alt={type.name}
+                    className=""
+                    />
 
-                  <span className="mt-3 text-[11px] text-gray-500 tracking-wide">
+                  <span className="mt-3 text-[15px] text-gray-500 tracking-wide uppercase">
                     {type.name}
                   </span>
                 </div>
+                </Link>
               </SwiperSlide>
             );
           })}

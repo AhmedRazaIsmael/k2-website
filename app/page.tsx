@@ -7,6 +7,8 @@ import { mockCountries } from "@/data/mockData";
 import Footer from "@/components/Footer";
 import { getBrands } from "@/lib/api";
 import { getVehicles } from "@/lib/api";
+import { getBodyTypes } from "@/lib/api";
+import { getAllFilters } from "@/lib/api";
 
 const mockCars = [
   {
@@ -120,19 +122,25 @@ const mockCars = [
   //   reserved: false,
   // },
 ];
-
+// export const dynamic = "force-dynamic";
 export default async function HomePage() {
 
-  const brands = await getBrands();
-  const formattedCars = await getVehicles();
+  
+  const [brands, formattedCars, bodyTypes] = await Promise.all([
+    getBrands(),
+    getVehicles(),
+    getBodyTypes(),
+  ]);
+
+  const filters = await getAllFilters();
 
   return (
     <div className="relative">
 
       {/* Hero (background) */}
-      <Hero />
+      <Hero {...filters}/>
 
-      <BrowseByType />
+      <BrowseByType types={bodyTypes}/>
 
       <PromoSection />
       <AvailableStocks cars={formattedCars} brands={brands}

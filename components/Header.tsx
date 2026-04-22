@@ -22,11 +22,6 @@ export default function Header({ totalStock = 0 }: any) {
         </div>
 
         {/* Center */}
-        {/* <div className="hidden md:flex items-center gap-2 opacity-80">
-          <MapPin size={14} />
-          <span>05:03:09 JST</span>
-          <iframe src="https://free.timeanddate.com/clock/i878a7q1/n248/tljp/fcfff/tct/pct/pt5/ta1" width="86" height="18"></iframe>
-        </div> */}
         <div className="hidden md:flex items-center gap-2">
             <MapPin  size={20} className="opacity-80"/>
             <JSTTime />
@@ -58,12 +53,12 @@ export default function Header({ totalStock = 0 }: any) {
         >
 
         {/* Logo */}
-        <img src="/logo.png" className="h-14 object-contain" />
+        <a href="/" className="cursor-pointer"><img src="/logo.png" className="h-14 object-contain" /></a>
 
         <div className="flex items-center justify-between">
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 px-10 text-[16px] font-semibold">
-          <a href="#" className="hover:text-green-400 transition">Home</a>
+          <a href="/" className="hover:text-green-400 transition">Home</a>
           <a href="#" className="hover:text-green-400 transition">About Us</a>
           <a href="#" className="hover:text-green-400 transition">Cars In Stock</a>
           <a href="#" className="hover:text-green-400 transition">Auto Parts</a>
