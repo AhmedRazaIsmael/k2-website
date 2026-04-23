@@ -1,13 +1,38 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Hero({
   brands = [],
-  models = [],
   steering = [],
   bodyTypes = [],
   drives = [],
   transmissions = [],
 }: any) {
+
+  const [selectedBrand, setSelectedBrand] = useState("");
+  const [models, setModels] = useState([]);
+
+  // 👇 your handler will also go here
+  const handleBrandChange = async (e: any) => {
+    const brandSlug = e.target.value;
+    setSelectedBrand(brandSlug);
+
+    if (!brandSlug) {
+      setModels([]);
+      return;
+    }
+
+    const selected = brands.find((b: any) => b.slug === brandSlug);
+    if (!selected) return;
+
+    const res = await fetch(
+      `https://floralwhite-echidna-890292.hostingersite.com/api/filters?models&brand_id=${selected.id}`
+    );
+
+    const data = await res.json();
+    setModels(data.models || []);
+  };
 
   return (
     <section className="relative w-full min-h-[725px] py-10">
@@ -48,7 +73,8 @@ export default function Hero({
 
           <div className="space-y-3">
 
-            <select className="w-full p-2 rounded bg-white text-black text-sm">
+            <select className="w-full p-2 rounded bg-white text-black text-sm" value={selectedBrand}
+  onChange={handleBrandChange}>
               <option value="">Makers</option>
               {brands.map((b: any) => (
                     <option key={b.id} value={b.slug}>
