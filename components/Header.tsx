@@ -59,11 +59,11 @@ export default function Header({ totalStock = 0 }: any) {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 px-10 text-[16px] font-semibold">
           <a href="/" className="hover:text-green-400 transition">Home</a>
-          <a href="#" className="hover:text-green-400 transition">About Us</a>
-          <a href="#" className="hover:text-green-400 transition">Cars In Stock</a>
+          <a href="/about-us" className="hover:text-green-400 transition">About Us</a>
+          <a href="/cars-in-stock" className="hover:text-green-400 transition">Cars In Stock</a>
           <a href="#" className="hover:text-green-400 transition">Auto Parts</a>
           <a href="#" className="hover:text-green-400 transition">Auction</a>
-          <a href="#" className="hover:text-green-400 transition">Contact Us</a>
+          <a href="/contact-us" className="hover:text-green-400 transition">Contact Us</a>
         </nav>
 
         {/* Search */}
@@ -92,12 +92,12 @@ export default function Header({ totalStock = 0 }: any) {
         <div className="md:hidden bg-black p-4 space-y-4">
 
           <nav className="space-y-3 text-sm">
-            <a href="#" className="block">Home</a>
-            <a href="#" className="block">About Us</a>
-            <a href="#" className="block">Cars In Stock</a>
+            <a href="/" className="block">Home</a>
+            <a href="/about-us" className="block">About Us</a>
+            <a href="/cars-in-stock" className="block">Cars In Stock</a>
             <a href="#" className="block">Auto Parts</a>
             <a href="#" className="block">Auction</a>
-            <a href="#" className="block">Contact Us</a>
+            <a href="/contact-us" className="block">Contact Us</a>
           </nav>
 
           <div className="flex bg-white rounded-md overflow-hidden">

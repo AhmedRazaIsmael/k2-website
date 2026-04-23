@@ -10,7 +10,7 @@ export default function Footer() {
 
         {/* LOGO + DESCRIPTION */}
         <div>
-          <img src="/logo.png" alt="logo" className="h-16 mb-4" />
+          <a href="/" className="contents"><img src="/logo.png" alt="logo" className="h-16 mb-4" /></a>
 
           <p className="text-sm text-white/80 leading-relaxed md:w-sm">
             K2 Global is your trusted partner in buying high-quality Japanese used cars.
