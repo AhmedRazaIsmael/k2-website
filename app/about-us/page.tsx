@@ -12,6 +12,7 @@ export default function AboutPage() {
        <WhyChooseUs />
        <HistorySection />
        <GetInTouch />
+       
     </div>
   );
 }
