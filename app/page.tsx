@@ -4,7 +4,6 @@ import BrowseByType from "@/components/BrowseByType";
 import PromoSection from "@/components/PromoSection";
 import AvailableStocks from "@/components/AvailableStocks";
 import { mockCountries } from "@/data/mockData";
-import Footer from "@/components/Footer";
 import { getBrands, getVehicles, getBodyTypes, getAllFilters, getYears } from "@/lib/api";
 
 const mockCars = [
@@ -134,7 +133,7 @@ export default async function HomePage() {
   // const filters = await getAllFilters();
 
   return (
-    <div className="relative">
+    <div className="relative mb-10">
 
       {/* Hero (background) */}
       <Hero {...filters} years={years}/>
@@ -142,10 +141,8 @@ export default async function HomePage() {
       <BrowseByType types={bodyTypes}/>
 
       <PromoSection />
-      <AvailableStocks cars={formattedCars} brands={brands}
+      <AvailableStocks cars={formattedCars.cars} brands={brands}
       countries={mockCountries}/>
-
-      <Footer />
 
     </div>
   );

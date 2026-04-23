@@ -4,7 +4,7 @@ import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#4f8f46] text-white mt-10">
+    <footer className="bg-[#4f8f46] text-white">
 
       <div className="max-w-7xl mx-auto py-12 grid grid-cols-1 px-6 md:px-0 md:grid-cols-2 lg:grid-cols-[40%_20%_20%_20%] gap-10 md:gap-0">
 
@@ -12,7 +12,7 @@ export default function Footer() {
         <div>
           <img src="/logo.png" alt="logo" className="h-16 mb-4" />
 
-          <p className="text-sm text-white/80 leading-relaxed w-sm">
+          <p className="text-sm text-white/80 leading-relaxed md:w-sm">
             K2 Global is your trusted partner in buying high-quality Japanese used cars.
             We provide an extensive range of vehicles to suit your needs. Experience seamless auto
             trading with exceptional service, competitive pricing, and worldwide shipping.

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import { Geist, Geist_Mono, Bai_Jamjuree } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +44,12 @@ export default async function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      />
+    </head>
       <body className={`${baiJamjuree.className} min-h-full flex flex-col`}>
 
         {/* ✅ Global Header */}
@@ -52,6 +59,7 @@ export default async function RootLayout({
         
         {children}
         
+          <Footer />
         </body>
     </html>
   );
