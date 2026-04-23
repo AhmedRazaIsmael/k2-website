@@ -60,7 +60,7 @@ export default function VerticalCard({ car }: any) {
           {/* SPEC GRID */}
           <div className="mt-3 border border-[#00000030] overflow-hidden">
 
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 text-[12px]">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-[1.3fr_1fr_1.3fr_1fr_1.3fr_1fr] text-[12px]">
 
                 <Spec icon="/mileage.png" label="Mileage" value={car.km} />
                 <Spec icon="/year.png" label="Year" value={car.year} />
