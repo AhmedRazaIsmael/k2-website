@@ -5,10 +5,7 @@ import PromoSection from "@/components/PromoSection";
 import AvailableStocks from "@/components/AvailableStocks";
 import { mockCountries } from "@/data/mockData";
 import Footer from "@/components/Footer";
-import { getBrands } from "@/lib/api";
-import { getVehicles } from "@/lib/api";
-import { getBodyTypes } from "@/lib/api";
-import { getAllFilters } from "@/lib/api";
+import { getBrands, getVehicles, getBodyTypes, getAllFilters, getYears } from "@/lib/api";
 
 const mockCars = [
   {
@@ -126,19 +123,21 @@ const mockCars = [
 export default async function HomePage() {
 
   
-  const [brands, formattedCars, bodyTypes] = await Promise.all([
+  const [brands, formattedCars, bodyTypes, filters, years] = await Promise.all([
     getBrands(),
     getVehicles(),
     getBodyTypes(),
+    getAllFilters(),
+    getYears(),
   ]);
 
-  const filters = await getAllFilters();
+  // const filters = await getAllFilters();
 
   return (
     <div className="relative">
 
       {/* Hero (background) */}
-      <Hero {...filters}/>
+      <Hero {...filters} years={years}/>
 
       <BrowseByType types={bodyTypes}/>
 

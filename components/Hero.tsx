@@ -8,10 +8,13 @@ export default function Hero({
   bodyTypes = [],
   drives = [],
   transmissions = [],
+  years = [],
 }: any) {
 
   const [selectedBrand, setSelectedBrand] = useState("");
   const [models, setModels] = useState([]);
+  const startYears = [...years].sort((a, b) => a - b);
+  const endYears = [...years].sort((a, b) => b - a);
 
   // 👇 your handler will also go here
   const handleBrandChange = async (e: any) => {
@@ -123,9 +126,19 @@ export default function Hero({
             <div className="flex gap-2">
               <select className="w-1/2 p-2 rounded bg-white text-black text-sm">
                 <option value="">Start Year</option>
+                {startYears.map((year: number) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
               </select>
               <select className="w-1/2 p-2 rounded bg-white text-black text-sm">
                 <option value="">End Year</option>
+                {endYears.map((year: number) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
               </select>
             </div>
 

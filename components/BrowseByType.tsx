@@ -41,10 +41,10 @@ export default function BrowseByType({ types = [] }: any) {
           </h2>
 
           <div className="flex gap-2">
-            <button className="prev-btn w-8 h-8 font-black rounded-full bg-black text-white flex items-center justify-center">
+            <button className="prev-btn w-8 h-8 font-black rounded-full bg-black text-white flex items-center justify-center cursor-pointer">
               ←
             </button>
-            <button className="next-btn w-8 h-8 font-black rounded-full bg-black text-white flex items-center justify-center">
+            <button className="next-btn w-8 h-8 font-black rounded-full bg-black text-white flex items-center justify-center cursor-pointer">
               →
             </button>
           </div>

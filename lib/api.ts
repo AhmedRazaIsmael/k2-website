@@ -121,3 +121,13 @@ export async function getAllFilters() {
     transmissions,
   };
 }
+
+export async function getYears() {
+  const res = await fetch(
+    "https://floralwhite-echidna-890292.hostingersite.com/api/filters?year",
+    { cache: "no-store" }
+  );
+
+  const data = await res.json();
+  return data.year || [];
+}
