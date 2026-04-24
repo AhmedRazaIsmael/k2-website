@@ -21,8 +21,12 @@ export default function Pagination({ meta }: any) {
       <button
         onClick={() => goToPage(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-2"
-      >
+        className={`px-2 ${
+            currentPage === 1
+            ? "cursor-not-allowed opacity-50"
+            : "cursor-pointer"
+        }`}
+        >
         {"<"}
       </button>
 
@@ -37,7 +41,7 @@ export default function Pagination({ meta }: any) {
             className={`px-3 py-1 rounded ${
               page === currentPage
                 ? "bg-green-600 text-white"
-                : "bg-gray-100"
+                : "bg-gray-100 cursor-pointer"
             }`}
           >
             {page}
@@ -49,7 +53,11 @@ export default function Pagination({ meta }: any) {
       <button
         onClick={() => goToPage(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-2"
+        className={`px-2 ${
+            currentPage === totalPages
+            ? "cursor-not-allowed opacity-50"
+            : "cursor-pointer"
+        }`}
       >
         {">"}
       </button>

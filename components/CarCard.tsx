@@ -55,7 +55,7 @@ export default function CarCard({ car }: any) {
       
       {/* Location */}
       <p className="text-[13px] text-gray-500 mt-1 pt-1 flex justify-between items-center">
-        <span className="flex items-center"><span className="pe-1"><img src="/location.png"/> </span>{car.location}</span> <span className="text-[15px] font-[700] text-[#000]">ASK</span>
+        <span className="flex items-center"><span className="pe-1"><img src="/location.png"/> </span>{car.location}</span> <span className="text-[15px] font-[700] text-[#000]">{car.price === "Ask For Price" ? "ASK" : car.price}</span>
       </p>
 
       <hr className="mt-3 pb-3 text-[#DEE2E6]"/>

@@ -4,6 +4,7 @@ import Pagination from "@/components/Pagination";
 import VerticalCard from "@/components/VerticalCard"
 
 export default function StockList({ cars = [], meta = {} }: any) {
+    console.log(meta);
   return (
     <div className="w-full">
 
@@ -13,8 +14,12 @@ export default function StockList({ cars = [], meta = {} }: any) {
       {/* 🔹 HEADER */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
 
-       <p className="text-[13px] text-gray-500">
-        Showing {meta.total} results
+       <p className="text-[16px] text-[#212529]">
+        Showing{" "}
+        {(meta.current_page - 1) * meta.per_page + 1}
+        {" "}to{" "}
+        {Math.min(meta.current_page * meta.per_page, meta.total)}
+        {" "}of {meta.total} results
         </p>
 
         <div className="flex items-center gap-4">
@@ -23,12 +28,28 @@ export default function StockList({ cars = [], meta = {} }: any) {
           <Pagination meta={meta} />
 
           {/* Sort */}
-          <select className="h-[36px] px-3 text-[13px] border rounded-md bg-white">
-            <option>Sort By</option>
+          <select
+            name="sort"
+            onChange={(e) => {
+                const value = e.target.value;
+
+                const params = new URLSearchParams(window.location.search);
+
+                if (value) {
+                params.set("sort", value);
+                } else {
+                params.delete("sort");
+                }
+
+                window.location.href = `/cars-in-stock?${params.toString()}`;
+            }}
+            className="h-[36px] px-3 text-[13px] border rounded-md bg-white"
+            >
+            <option value="">Sort By</option>
             <option value="latest">Latest</option>
             <option value="price_low">Price Low → High</option>
             <option value="price_high">Price High → Low</option>
-          </select>
+            </select>
 
         </div>
       </div>
@@ -42,11 +63,22 @@ export default function StockList({ cars = [], meta = {} }: any) {
 
       </div>
 
-      {/* 🔹 Pagination bottom */}
-      <div className="mt-6">
-        <Pagination meta={meta} />
-      </div>
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
+        {/* 🔹 Pagination bottom */}
+        <p className="text-[16px] text-[#212529]">
+            Showing{" "}
+            {(meta.current_page - 1) * meta.per_page + 1}
+            {" "}to{" "}
+            {Math.min(meta.current_page * meta.per_page, meta.total)}
+            {" "}of {meta.total} results
+        </p>
 
+        <div className="mt-6">
+            <Pagination meta={meta} />
+        </div>
+
+        </div>
     </div>
+
   );
 }

@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function AvailableStocks({
   cars = [],
   brands = [],
+  prices = [],
   countries = [],
 }: any) {
   return (
@@ -32,7 +33,7 @@ export default function AvailableStocks({
             </div>
           </div> */}
 
-          <RightSidebar brands={brands} />
+          <RightSidebar brands={brands} prices={prices}/>
 
           {/* CENTER GRID */}
 

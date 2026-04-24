@@ -11,6 +11,17 @@ export async function getBrands() {
   return data.brands || [];
 }
 
+export async function getPrices() {
+  const res = await fetch(
+    "https://floralwhite-echidna-890292.hostingersite.com/api/filters?price",
+    { cache: "no-store" ,
+      next: { revalidate: 0 }},
+  );
+
+  const data = await res.json();
+  return data.price || [];
+}
+
 // export async function getVehicles() {
 //   const res = await fetch(
 //     "https://floralwhite-echidna-890292.hostingersite.com/api/vehicles",
@@ -125,6 +136,10 @@ export async function getVehicles(params: any = {}) {
         query.append("make", String(v)); // ✅ matches backend
       }
 
+      else if (key === "brand") {
+        query.append("make", String(v)); // ✅ matches backend
+      }
+
       // 🏷️ MODEL (slug)
       else if (key === "model") {
         query.append("model", String(v)); // ✅ matches backend
@@ -151,6 +166,8 @@ export async function getVehicles(params: any = {}) {
           "fuel",
           "transmission",
           "color",
+          "category",
+          "location",
         ].includes(key)
       ) {
         query.append(`attributes[${key}]`, String(v));
@@ -237,6 +254,7 @@ export async function getVehicles(params: any = {}) {
       current_page: data.current_page,
       last_page: data.last_page,
       total: data.total,
+      per_page: data.per_page,
     },
   };
 }
@@ -304,6 +322,9 @@ export async function getAllFilters() {
     bodyTypes,
     drives,
     transmissions,
+    colors,
+    fuel,
+    locations,
   ] = await Promise.all([
     getBrands(),
     getModels(),
@@ -311,6 +332,9 @@ export async function getAllFilters() {
     getAttributes("body-type"),
     getAttributes("drive"),
     getAttributes("transmission"),
+    getAttributes("color"),
+    getAttributes("fuel"),
+    getAttributes("location"),
   ]);
 
   return {
@@ -320,6 +344,9 @@ export async function getAllFilters() {
     bodyTypes,
     drives,
     transmissions,
+    colors,
+    fuel,
+    locations,
   };
 }
 

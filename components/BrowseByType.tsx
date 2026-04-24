@@ -16,18 +16,34 @@ export default function BrowseByType({ types = [] }: any) {
     setSwiperKey(prev => prev + 1);
     }, [pathname]);
 
+    const tabs = [
+        {
+            label: "New Arrival Stock",
+            slug: "new-arrival-stock",
+        },
+        {
+            label: "Clearance Sale",
+            slug: "clearance-sale",
+        },
+        {
+            label: "Recommended Stocks",
+            slug: "recommended-stocks",
+        },
+    ];
+
   return (
     <section className="pb-10">
 
       {/* Top Tabs */}
       <div className="bg-[#6fa25a] py-12 flex justify-center gap-4 flex-wrap">
-        {["New Arrival Stock", "Clearance Sale", "Recommended Stocks"].map((item) => (
-          <button
-            key={item}
+        {tabs.map((tab) => (
+            <Link
+            key={tab.slug}
+            href={`/cars-in-stock?category=${tab.slug}`}
             className="px-6 md:px-20 py-2 border border-white text-white rounded-md text-sm hover:bg-white hover:text-black transition"
-          >
-            {item}
-          </button>
+            >
+            {tab.label}
+            </Link>
         ))}
       </div>
 
