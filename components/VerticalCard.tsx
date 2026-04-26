@@ -10,10 +10,13 @@ export default function VerticalCard({ car }: any) {
         {/* IMAGE */}
         <div className="w-full lg:w-[270px] relative">
             <div className="relative">
-            <img
+            <Link
+                href={`/stock-detail/${car.slug}`}
+                className=""
+                ><img
                 src={car.image}
                 className="w-full h-[210px] object-cover rounded-[10px]"
-            />
+            /></Link>
 
             <span className="absolute bottom-2 left-2 text-[10px] bg-black/70 text-white px-2 py-[2px] rounded">
                 Ref# {car.stock}
@@ -41,7 +44,10 @@ export default function VerticalCard({ car }: any) {
 
             <div className="md:flex items-center gap-2">
               <h3 className="text-[20px] font-semibold border-r-[1px] border-[#DEE2E6] pe-2">
-                {car.title}
+                <Link
+                href={`/stock-detail/${car.slug}`}
+                className=""
+                >{car.title}</Link>
               </h3>
 
               <span className="text-[14px] flex items-center text-gray-500">
