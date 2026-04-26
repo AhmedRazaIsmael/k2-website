@@ -359,3 +359,90 @@ export async function getYears() {
   const data = await res.json();
   return data.year || [];
 }
+
+export async function getVehicleBySlug(slug: string) {
+  const res = await fetch(
+  `https://floralwhite-echidna-890292.hostingersite.com/api/vehicles/${slug}`,
+  {
+    cache: "no-store",
+    headers: {
+      Accept: "application/json",
+    },
+  }
+);
+
+  const data = await res.json();
+  console.log("Vehicle", data);
+
+  const car = data.data || data; // depending on your API response
+
+  const attrs = car.attributes || [];
+
+  // 🔥 helper to extract attribute values
+  const getAttr = (slug: string) => {
+    const item = attrs.find((a: any) => a.attribute.slug === slug);
+
+    if (!item) return null;
+
+    return item.value?.value || item.value_text || null;
+  };
+
+  return {
+    id: car.id,
+    title: car.title,
+    slug: car.slug,
+
+    // 💰 PRICE
+    price:
+      Number(car.price) > 0
+        ? `$${Number(car.price).toLocaleString()}`
+        : "Ask For Price",
+
+    // 🖼️ IMAGES
+    image: car.images?.[0]?.image_url || "/placeholder.jpg",
+    images: car.images || [],
+
+    // 📊 BASIC INFO
+    km: car.mileage ? `${car.mileage} KM` : "N/A",
+    year: car.year || "N/A",
+    yearmonth: getAttr("yearmonth") || "N/A",
+
+    cc: getAttr("engine")
+      ? `${getAttr("engine")} CC`
+      : "N/A",
+
+    // ⚙️ MAIN ATTRIBUTES
+    fuel: getAttr("fuel") || "N/A",
+    transmission: getAttr("transmission") || "N/A",
+    drive: getAttr("drive") || "N/A",
+    steering: getAttr("steering") || "N/A",
+
+    // 📄 DETAILS
+    chassis: getAttr("chassis-number") || "N/A",
+    model_code: getAttr("model-code") || "N/A",
+    version: getAttr("versionclass") || "N/A",
+    inventory: getAttr("inventory") || "N/A",
+    location: getAttr("location") || "N/A",
+
+    // 🧾 EXTRA
+    color: getAttr("color") || "N/A",
+    seats: getAttr("seats") || "N/A",
+    doors: getAttr("door") || "N/A",
+    m3: getAttr("m3") || "N/A",
+
+    // 🏷️ CATEGORY (important for your filters)
+    category: getAttr("category") || null,
+
+    // ⭐ FEATURES (special case)
+    features: attrs
+      .filter((a: any) => a.attribute.slug === "features")
+      .map((a: any) => a.value?.value),
+
+    // 🔖 STOCK
+    stock: car.ref_no || "N/A",
+
+    // 🏷️ BRAND / MODEL (optional)
+    brand: car.brand || null,
+    model: car.model || null,
+  };
+}
