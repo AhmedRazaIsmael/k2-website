@@ -55,7 +55,7 @@ export default function AvailableStocks({
                 
                 <Link
                 href={`/cars-in-stock`}
-                className="block w-full text-center bg-[#6fa25a] text-[#fff] py-3 rounded-lg hover:bg-green-700 hover:text-white transition text-sm font-medium transition"
+                className="block w-full text-center bg-[#347A3B] hover:bg-[#5a9444] text-[#fff] py-3 rounded-lg hover:text-white transition text-sm font-medium transition"
                 >
                 See More
                 </Link>

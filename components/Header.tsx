@@ -11,7 +11,7 @@ export default function Header({ totalStock = 0 }: any) {
     <header className="w-full text-white">
 
       {/* Top Bar */}
-      <div className="bg-black text-[15px] px-6 py-2 flex items-center justify-between">
+      <div className="bg-black text-[15px] px-6 md:px-12 py-2 flex items-center justify-between">
         
         {/* Left */}
         <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function Header({ totalStock = 0 }: any) {
 
       {/* Main Header */}
       <div
-        className="px-6 py-4 flex items-center justify-between
+        className="px-6 md:px-12 py-4 flex items-center justify-between
         backdrop-blur-md border-b border-white/10
         sticky top-0 z-50"
         style={{
@@ -61,7 +61,7 @@ export default function Header({ totalStock = 0 }: any) {
           <a href="/" className="hover:text-green-400 transition">Home</a>
           <a href="/about-us" className="hover:text-green-400 transition">About Us</a>
           <a href="/cars-in-stock" className="hover:text-green-400 transition">Cars In Stock</a>
-          <a href="#" className="hover:text-green-400 transition">Auto Parts</a>
+          <a href="/auto-parts" className="hover:text-green-400 transition">Auto Parts</a>
           <a href="#" className="hover:text-green-400 transition">Auction</a>
           <a href="/contact-us" className="hover:text-green-400 transition">Contact Us</a>
         </nav>
@@ -95,7 +95,7 @@ export default function Header({ totalStock = 0 }: any) {
             <a href="/" className="block">Home</a>
             <a href="/about-us" className="block">About Us</a>
             <a href="/cars-in-stock" className="block">Cars In Stock</a>
-            <a href="#" className="block">Auto Parts</a>
+            <a href="/auto-parts" className="block">Auto Parts</a>
             <a href="#" className="block">Auction</a>
             <a href="/contact-us" className="block">Contact Us</a>
           </nav>

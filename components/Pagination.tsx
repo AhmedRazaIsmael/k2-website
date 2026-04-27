@@ -40,7 +40,7 @@ export default function Pagination({ meta }: any) {
             onClick={() => goToPage(page)}
             className={`px-3 py-1 rounded ${
               page === currentPage
-                ? "bg-green-600 text-white"
+                ? "bg-[#5a9444] text-white"
                 : "bg-gray-100 cursor-pointer"
             }`}
           >

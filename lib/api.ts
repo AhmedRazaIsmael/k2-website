@@ -410,6 +410,9 @@ export async function getVehicleBySlug(slug: string) {
     cc: getAttr("engine")
       ? `${getAttr("engine")} CC`
       : "N/A",
+    engine_code: getAttr("engine-code")
+      ? `${getAttr("engine-code")}`
+      : "N/A",  
 
     // ⚙️ MAIN ATTRIBUTES
     fuel: getAttr("fuel") || "N/A",
@@ -445,4 +448,49 @@ export async function getVehicleBySlug(slug: string) {
     brand: car.brand || null,
     model: car.model || null,
   };
+}
+
+export async function getRelatedVehicles(slug: string) {
+  const res = await fetch(
+    `https://floralwhite-echidna-890292.hostingersite.com/api/vehicles/${slug}/related`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  // 🔥 DEBUG (important while integrating)
+//   console.log("RELATED API STATUS:", res.status);
+
+  const data = await res.json();
+
+  const carsRaw = data.data || [];
+
+  const formattedCars = carsRaw.map((car: any) => ({
+    id: car.id,
+    title: car.title,
+    slug: car.slug,
+    image: car.images?.[0]?.image_url || "/placeholder.jpg",
+
+    location: car.attribute_cache?.location || "N/A",
+
+    price:
+      Number(car.price) > 0
+        ? `$${Number(car.price).toLocaleString()}`
+        : "Ask For Price",
+
+    km: `${car.mileage} KM`,
+    year: car.year || "N/A",
+    fuel: car.attribute_cache?.fuel || "N/A",
+    drive: car.attribute_cache?.drive || "N/A",
+    transmission: car.attribute_cache?.transmission || "N/A",
+
+    cc: car.attribute_cache?.engine
+      ? `${car.attribute_cache.engine} CC`
+      : "N/A",
+
+    stock: car.ref_no,
+    status: car.status || "N/A",
+  }));
+
+  return formattedCars;
 }

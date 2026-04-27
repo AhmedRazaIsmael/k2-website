@@ -78,7 +78,7 @@ export default function CarCard({ car }: any) {
         </button> */}
         <Link
         href={`/stock-detail/${car.slug}`}
-        className="block w-full text-center border border-green-600 text-green-600 py-2 rounded-lg hover:bg-green-700 hover:text-white transition text-[14px] font-semibold me-2"
+        className="block w-full text-center border border-[#5a9444] text-[#5a9444] py-2 rounded-lg hover:bg-[#5a9444] hover:text-white transition text-[14px] font-semibold me-2"
         >
         Buy Now
         </Link>

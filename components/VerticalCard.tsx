@@ -27,7 +27,7 @@ export default function VerticalCard({ car }: any) {
             <div className="flex justify-center items-center mt-5">
                 <Link
                 href={`/stock-detail/${car.slug}`}
-                className="block w-full text-center border border-green-600 text-green-600 py-2 rounded-lg hover:bg-green-700 hover:text-white transition text-[14px] font-semibold me-2"
+                className="block w-full text-center border border-[#5a9444] text-[#5a9444] py-2 rounded-lg hover:bg-[#5a9444] hover:text-white transition text-[14px] font-semibold me-2"
                 >
                 Inquire Now
                 </Link>
@@ -57,7 +57,7 @@ export default function VerticalCard({ car }: any) {
 
             <p className="mt-1 md:mt-0">
               <span className="text-gray-500 mr-1 text-[14px]">FOB Price</span>
-              <span className="text-green-600 font-semibold text-[20px]">
+              <span className="text-[#5a9444] font-semibold text-[20px]">
                 {car.price}
               </span>
             </p>

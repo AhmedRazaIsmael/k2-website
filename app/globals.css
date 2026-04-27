@@ -1,8 +1,13 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* --swiper-pagination-bottom: 0; */
+  --swiper-pagination-color: #4f8f46;
 }
 
 @theme inline {
@@ -33,4 +38,15 @@ body {
   background: #e5e5e5;
   color: #333;
   outline: none;
+}
+
+.thumb-dots-custom.swiper-pagination-bullets {
+  text-align: center;
+  display: block;
+  margin: auto;
+  transform: translateX(0%) !important;
+}
+
+.input {
+  @apply w-full h-[44px] px-4 rounded-md border border-[#dcdcdc] bg-white text-[14px] focus:outline-none focus:border-green-600;
 }

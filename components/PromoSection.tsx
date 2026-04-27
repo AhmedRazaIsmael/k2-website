@@ -24,7 +24,7 @@ export default function PromoSection() {
               Looking For ?
             </h3>
 
-            <button className="mt-3 bg-[#4CAF50] hover:bg-green-600 transition px-4 py-2 rounded-md text-[18px] w-fit">
+            <button className="mt-3 bg-[#347A3B] hover:bg-[#5a9444] transition px-4 py-2 rounded-md text-[18px] w-fit">
               Shop Now
             </button>
           </div>
@@ -49,7 +49,7 @@ export default function PromoSection() {
               Check Our Stocks
             </h3>
 
-            <button className="mt-3 bg-[#4CAF50] hover:bg-green-600 transition px-4 py-2 rounded-md text-[18px] w-fit">
+            <button className="mt-3 bg-[#347A3B] hover:bg-[#5a9444] transition px-4 py-2 rounded-md text-[18px] w-fit">
               Shop Now
             </button>
           </div>
