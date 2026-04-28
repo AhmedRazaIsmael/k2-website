@@ -8,7 +8,7 @@ import ShippingSection from "@/components/ShippingSection";
 
 export default function AutoPage() {
   return (
-    <div className="">
+    <div>
       <AutoHero />
       <AutoPartsSection />
       <DismantlingSection />

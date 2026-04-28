@@ -44,7 +44,7 @@ export default function GetInTouch() {
 
       </div>
 
-      <div className="bg-[#4f8f46] h-30 -mb-2 md:-mb-1"></div>
+      <div className="bg-gradient-to-r from-[#589243] to-[#387C3B] h-30 -mb-2 md:-mb-1"></div>
     </section>
   );
 }
