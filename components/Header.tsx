@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Menu, X, Search, Phone, MapPin, User } from "lucide-react";
 import { useRouter } from "next/navigation";
 import JSTTime from "@/components/JSTTime";
+import Link from "next/link";
 
 export default function Header({ totalStock = 0 }: any) {
   const [open, setOpen] = useState(false);
@@ -62,17 +63,17 @@ export default function Header({ totalStock = 0 }: any) {
         >
 
         {/* Logo */}
-        <a href="/" className="cursor-pointer"><img src="/logo.png" className="h-14 object-contain" /></a>
+        <Link href="/" className="cursor-pointer"><img src="/logo.png" className="h-14 object-contain" /></Link>
 
         <div className="flex items-center justify-between">
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 px-10 text-[16px] font-semibold">
-          <a href="/" className="hover:text-green-400 transition">Home</a>
-          <a href="/about-us" className="hover:text-green-400 transition">About Us</a>
-          <a href="/cars-in-stock" className="hover:text-green-400 transition">Cars In Stock</a>
-          <a href="/auto-parts" className="hover:text-green-400 transition">Auto Parts</a>
-          <a href="#" className="hover:text-green-400 transition">Auction</a>
-          <a href="/contact-us" className="hover:text-green-400 transition">Contact Us</a>
+          <Link href="/" className="hover:text-green-400 transition">Home</Link>
+          <Link href="/about-us" className="hover:text-green-400 transition">About Us</Link>
+          <Link href="/cars-in-stock" className="hover:text-green-400 transition">Cars In Stock</Link>
+          <Link href="/auto-parts" className="hover:text-green-400 transition">Auto Parts</Link>
+          <Link href="#" className="hover:text-green-400 transition">Auction</Link>
+          <Link href="/contact-us" className="hover:text-green-400 transition">Contact Us</Link>
         </nav>
 
         {/* Search */}
@@ -107,12 +108,12 @@ export default function Header({ totalStock = 0 }: any) {
         <div className="md:hidden bg-black p-4 space-y-4">
 
           <nav className="space-y-3 text-sm">
-            <a href="/" className="block">Home</a>
-            <a href="/about-us" className="block">About Us</a>
-            <a href="/cars-in-stock" className="block">Cars In Stock</a>
-            <a href="/auto-parts" className="block">Auto Parts</a>
-            <a href="#" className="block">Auction</a>
-            <a href="/contact-us" className="block">Contact Us</a>
+            <Link href="/" className="block">Home</Link>
+            <Link href="/about-us" className="block">About Us</Link>
+            <Link href="/cars-in-stock" className="block">Cars In Stock</Link>
+            <Link href="/auto-parts" className="block">Auto Parts</Link>
+            <Link href="#" className="block">Auction</Link>
+            <Link href="/contact-us" className="block">Contact Us</Link>
           </nav>
 
           <div className="flex bg-white rounded-md overflow-hidden">

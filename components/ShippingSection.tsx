@@ -16,7 +16,7 @@ export default function ShippingSection() {
         <div className="flex flex-col gap-4">
 
           {/* SHIPPING INFO */}
-          <div className="bg-[#0f0f0f] text-white rounded-[8px] p-5 md:p-6">
+          <div className="bg-[#111111] text-white rounded-[8px] p-5 md:p-6">
             <h3 className="text-[24px] font-semibold mb-3">
               SHIPPING INFORMATION
             </h3>
@@ -32,7 +32,7 @@ export default function ShippingSection() {
           </div>
 
           {/* PAYMENT TERMS */}
-          <div className="bg-[#dce7d8] rounded-[8px] p-5 md:p-6">
+          <div className="bg-[#d1e2cb] rounded-[8px] p-5 md:p-6">
             <h3 className="text-[24px] font-semibold text-[#333] mb-2">
               PAYMENT TERMS
             </h3>
@@ -50,7 +50,7 @@ export default function ShippingSection() {
           </div>
 
           {/* ADDITIONAL INFO */}
-          <div className="bg-[#dce7d8] rounded-[8px] p-5 md:p-6">
+          <div className="bg-[#d1e2cb] rounded-[8px] p-5 md:p-6">
             <h3 className="text-[24px] font-semibold text-[#333] mb-2">
               ADDITIONAL INFORMATION
             </h3>

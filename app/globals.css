@@ -34,10 +34,11 @@ body {
   height: 38px;
   padding: 0 10px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 16px;
   background: #e5e5e5;
   color: #333;
   outline: none;
+  cursor: pointer;
 }
 
 .thumb-dots-custom.swiper-pagination-bullets {

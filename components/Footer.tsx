@@ -1,16 +1,17 @@
 "use client";
 
 import { Mail, Phone } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#4f8f46] text-white">
+    <footer className="bg-gradient-to-r from-[#589243] to-[#387C3B] text-white">
 
       <div className="max-w-7xl mx-auto py-12 grid grid-cols-1 px-6 md:px-0 md:grid-cols-2 lg:grid-cols-[40%_20%_20%_20%] gap-10 md:gap-0">
 
         {/* LOGO + DESCRIPTION */}
         <div>
-          <a href="/" className="contents"><img src="/logo.png" alt="logo" className="h-16 mb-4" /></a>
+          <Link href="/" className="contents"><img src="/logo.png" alt="logo" className="h-16 mb-4" /></Link>
 
           <p className="text-sm text-white/80 leading-relaxed md:w-sm">
             K2 Global is your trusted partner in buying high-quality Japanese used cars.
@@ -25,10 +26,10 @@ export default function Footer() {
           <h3 className="font-semibold mb-4 text-lg">Quick Links</h3>
 
           <ul className="space-y-2 text-sm text-white/80">
-            <li className="hover:text-white cursor-pointer">About Us</li>
-            <li className="hover:text-white cursor-pointer">How to buy</li>
-            <li className="hover:text-white cursor-pointer">Cars In Stock</li>
-            <li className="hover:text-white cursor-pointer">Contact</li>
+            <li className="hover:text-white"><Link href="/about-us">About Us</Link></li>
+            <li className="hover:text-white"><Link href="/about-us">How to buy</Link></li>
+            <li className="hover:text-white"><Link href="/cars-in-stock">Cars In Stock</Link></li>
+            <li className="hover:text-white"><Link href="/contact-us">Contact</Link></li>
           </ul>
         </div>
 
@@ -37,10 +38,10 @@ export default function Footer() {
           <h3 className="font-semibold mb-4 text-lg">Customer Support</h3>
 
           <ul className="space-y-2 text-sm text-white/80">
-            <li className="hover:text-white cursor-pointer">Bank Details</li>
-            <li className="hover:text-white cursor-pointer">FAQs</li>
-            <li className="hover:text-white cursor-pointer">Privacy Policy</li>
-            <li className="hover:text-white cursor-pointer">Terms & Conditions</li>
+            <li className="hover:text-white"><Link href="/bank-details">Bank Details</Link></li>
+            <li className="hover:text-white"><Link href="/about-us">FAQs</Link></li>
+            <li className="hover:text-white"><Link href="/about-us">Privacy Policy</Link></li>
+            <li className="hover:text-white"><Link href="/about-us">Terms & Conditions</Link></li>
           </ul>
         </div>
 
@@ -60,12 +61,12 @@ export default function Footer() {
 
             <div className="flex items-center gap-2">
               <Mail size={14} />
-              <span className="hover:underline"><a href="mailto:cs@thehtml.com">cs@thehtml.com</a></span>
+              <span className="hover:underline"><Link href="mailto:cs@thehtml.com">cs@thehtml.com</Link></span>
             </div>
 
             <div className="flex items-center gap-2">
               <Mail size={14} />
-              <span className="hover:underline"><a href="mailto:talkto@thehtml.com">talkto@thehtml.com</a></span>
+              <span className="hover:underline"><Link href="mailto:talkto@thehtml.com">talkto@thehtml.com</Link></span>
             </div>
 
             <div className="flex items-center gap-2">

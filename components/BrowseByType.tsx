@@ -97,8 +97,8 @@ export default function BrowseByType({ types = [] }: any) {
 
             return (
               <SwiperSlide key={type.id}>
-                <Link href={`/cars-in-stock?body-type=${type.slug}`} prefetch>
-                <div className="bg-white rounded-xl border border-gray-300 py-3 flex flex-col items-center justify-center hover:shadow- sm transition h-[120px]">
+                <Link href={`/cars-in-stock?body-type=${type.slug}`} prefetch> 
+                <div className="bg-white rounded-xl border border-gray-300 hover:border-[#5a9444] py-3 flex flex-col items-center justify-center hover:shadow- sm transition h-[120px]">
                   {/* <Icon size={100} className="text-gray-700" strokeWidth={1.5} /> */}
                   <img
                     src={type.image}
@@ -106,7 +106,7 @@ export default function BrowseByType({ types = [] }: any) {
                     className=""
                     />
 
-                  <span className="mt-3 text-[15px] text-gray-500 tracking-wide uppercase">
+                  <span className="mt-3 text-[15px] text-gray-500 tracking-wide uppercase hover:text-[#5a9444]">
                     {type.name}
                   </span>
                 </div>

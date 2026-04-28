@@ -13,11 +13,12 @@ export const mockBrands = [
   { id: 12, img:"/car2.png", name: "PEUGEOT", count: 25 },
 ];
 
-export const mockCountries = [
+export const  mockCountries = [
   { id: 1, name: "Tanzania", flag: "🇹🇿" },
   { id: 2, name: "South Africa", flag: "🇿🇦" },
   { id: 3, name: "Nigeria", flag: "🇳🇬" },
   { id: 4, name: "Kenya", flag: "🇰🇪" },
+  { id: 4, name: "South Sudan", region: "" },
   { id: 5, name: "Uganda", flag: "🇺🇬" },
   { id: 6, name: "Ghana", flag: "🇬🇭" },
   { id: 7, name: "Namibia", flag: "🇳🇦" },
@@ -25,3 +26,63 @@ export const mockCountries = [
   { id: 9, name: "Germany", flag: "🇩🇪" },
   { id: 10, name: "Ireland", flag: "🇮🇪" },
 ];
+
+export const countriesByRegion = {
+  Africa: [
+    { name: "Tanzania", slug: "tanzania" },
+    { name: "South Africa", slug: "south-africa"},
+    { name: "Nigeria", slug: "nigeria"},
+    { name: "Kenya", slug: "kenya",},
+    { name: "South Sudan", slug: "south-sudan"},
+    { name: "Burundi", slug: "burundi"},
+    { name: "Malawi", slug: "malawi"},
+    { name: "Congo", slug: "congo"},
+    { name: "Namibia", slug: "namibia"},
+    { name: "Uganda", slug: "uganda",},
+    { name: "Ghana", slug: "ghana",},
+    { name: "Mauritius", slug: "Mauritius",},
+  ],
+
+  Europe: [
+    { name: "United Kingdom", slug: "united-kingdom",},
+    { name: "Ireland", slug: "ireland",},
+    { name: "Germany", slug: "germany",},
+    { name: "Italy", slug: "italy",},
+    { name: "Netherlands", slug: "netherlands",},
+    { name: "Finland", slug: "finland",},
+    { name: "Spain", slug: "spain",},
+  ],
+
+  "Gulf Region": [
+    { name: "UAE", slug: "uae",},
+    { name: "Saudi Arabia", slug: "saudi-arabia",},
+    { name: "Oman", slug: "oman",},
+    { name: "Kuwait", slug: "kuwait",},
+    { name: "Qatar", slug: "qatar",},
+    { name: "Bahrain", slug: "bahrain",},
+    { name: "Iraq", slug: "iraq",},
+    { name: "Yemen", slug: "yemen",},
+  ],
+
+  Carribean: [
+    { name: "Anguilla", slug: "anguilla",},
+    { name: "Antigua", slug: "antigua", code: "ag"},
+    { name: "Bahamas", slug: "bahamas",},
+    { name: "Jamaica", slug: "jamaica",},
+    { name: "Guyana", slug: "guyana",},
+    { name: "Suriname", slug: "suriname",},
+    { name: "Saint Vincent", slug: "saint-vincent", code: "vc"},
+    { name: "Soloman Islands", slug: "soloman-islands", code: "sb"},
+    { name: "Trinidad", slug: "trinidad", code: "tt"},
+  ],
+  Others: [
+    { name: "Chile", slug: "chile",},
+    { name: "Russia", slug: "russia",},
+    { name: "Cyprus", slug: "cyprus",},
+    { name: "UAE", slug: "uae",},
+    { name: "Sri Lanka", slug: "sri-lanka",},
+    { name: "USA", slug: "usa",},
+    { name: "Pakistan", slug: "pakistan",},
+    { name: "Bangladesh", slug: "bangladesh",},
+  ],
+};

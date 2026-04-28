@@ -3,8 +3,7 @@ const BASE_URL = "https://floralwhite-echidna-890292.hostingersite.com/api";
 export async function getBrands() {
   const res = await fetch(
     "https://floralwhite-echidna-890292.hostingersite.com/api/filters?brands",
-    { cache: "no-store" ,
-      next: { revalidate: 0 }},
+    { next: { revalidate: 60 }},
   );
 
   const data = await res.json();
@@ -14,8 +13,7 @@ export async function getBrands() {
 export async function getPrices() {
   const res = await fetch(
     "https://floralwhite-echidna-890292.hostingersite.com/api/filters?price",
-    { cache: "no-store" ,
-      next: { revalidate: 0 }},
+    { next: { revalidate: 60 }},
   );
 
   const data = await res.json();
@@ -200,10 +198,7 @@ export async function getVehicles(params: any = {}) {
 
   const res = await fetch(
     `https://floralwhite-echidna-890292.hostingersite.com/api/vehicles?${query.toString()}`,
-    {
-      cache: "no-store",
-      next: { revalidate: 0 },
-    }
+    { next: { revalidate: 60 }},
   );
 
   const data = await res.json();
@@ -262,8 +257,7 @@ export async function getVehicles(params: any = {}) {
 export async function getBodyTypes() {
   const res = await fetch(
     "https://floralwhite-echidna-890292.hostingersite.com/api/filters?attribute[body-type]",
-    { cache: "no-store" ,
-      next: { revalidate: 0 }}
+    { next: { revalidate: 60 }},
   );
 
   const data = await res.json();
@@ -285,7 +279,7 @@ export async function getBodyTypes() {
  */
 async function fetchAPI(endpoint: string) {
   const res = await fetch(`${BASE_URL}${endpoint}`, {
-    cache: "no-store",
+    next: { revalidate: 60 }
   });
 
   if (!res.ok) {
@@ -353,7 +347,7 @@ export async function getAllFilters() {
 export async function getYears() {
   const res = await fetch(
     "https://floralwhite-echidna-890292.hostingersite.com/api/filters?year",
-    { cache: "no-store" }
+    { next: { revalidate: 60 } }
   );
 
   const data = await res.json();
@@ -364,7 +358,7 @@ export async function getVehicleBySlug(slug: string) {
   const res = await fetch(
   `https://floralwhite-echidna-890292.hostingersite.com/api/vehicles/${slug}`,
   {
-    cache: "no-store",
+    next: { revalidate: 60 },
     headers: {
       Accept: "application/json",
     },
@@ -454,7 +448,7 @@ export async function getRelatedVehicles(slug: string) {
   const res = await fetch(
     `https://floralwhite-echidna-890292.hostingersite.com/api/vehicles/${slug}/related`,
     {
-      cache: "no-store",
+      next: { revalidate: 60 },
     }
   );
 

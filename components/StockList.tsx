@@ -1,16 +1,33 @@
 "use client";
 import Link from "next/link";
 import Pagination from "@/components/Pagination";
-import VerticalCard from "@/components/VerticalCard"
+import { useSearchParams } from "next/navigation";
+import VerticalCard from "@/components/VerticalCard";
+import NoResults from "./NoResults";
+import { useRouter } from "next/navigation";
 
 export default function StockList({ cars = [], meta = {} }: any) {
-    console.log(meta);
+    // console.log(meta);
+    const searchParams = useSearchParams();
+    const location = searchParams.get("location");
+
+    const hasCars = cars.length > 0;
+    const router = useRouter();
   return (
     <div className="w-full">
 
         <h2 className="text-[28px] text-center font-bold text-[#2c2c2c]">
           STOCK LIST
         </h2>
+
+        {!hasCars && (
+            <div className="mt-6 w-full lg:max-w-5xl lg:mx-auto px-4">
+            <NoResults location={location} />
+            </div>
+        )}
+
+        {hasCars && (
+        <>
       {/* 🔹 HEADER */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
 
@@ -41,7 +58,7 @@ export default function StockList({ cars = [], meta = {} }: any) {
                 params.delete("sort");
                 }
 
-                window.location.href = `/cars-in-stock?${params.toString()}`;
+                router.push(`/cars-in-stock?${params.toString()}`);
             }}
             className="h-[36px] px-3 text-[13px] border rounded-md bg-white"
             >
@@ -78,6 +95,8 @@ export default function StockList({ cars = [], meta = {} }: any) {
         </div>
 
         </div>
+          </>
+      )}
     </div>
 
   );

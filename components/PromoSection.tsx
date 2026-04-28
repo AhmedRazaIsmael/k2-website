@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function PromoSection() {
   return (
     <section className="py-10">
@@ -24,9 +26,9 @@ export default function PromoSection() {
               Looking For ?
             </h3>
 
-            <button className="mt-3 bg-[#347A3B] hover:bg-[#5a9444] transition px-4 py-2 rounded-md text-[18px] w-fit">
+            <Link href="/cars-in-stock" className="mt-3 bg-[#347A3B] hover:bg-[#5a9444] transition px-4 py-2 rounded-md text-[18px] w-fit">
               Shop Now
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -49,9 +51,9 @@ export default function PromoSection() {
               Check Our Stocks
             </h3>
 
-            <button className="mt-3 bg-[#347A3B] hover:bg-[#5a9444] transition px-4 py-2 rounded-md text-[18px] w-fit">
+            <Link href="/cars-in-stock" className="mt-3 bg-[#347A3B] hover:bg-[#5a9444] transition px-4 py-2 rounded-md text-[18px] w-fit">
               Shop Now
-            </button>
+            </Link>
           </div>
         </div>
 

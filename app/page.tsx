@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import BrowseByType from "@/components/BrowseByType";
 import PromoSection from "@/components/PromoSection";
 import AvailableStocks from "@/components/AvailableStocks";
-import { mockCountries } from "@/data/mockData";
+import { countriesByRegion } from "@/data/mockData";
 import { getBrands, getVehicles, getBodyTypes, getAllFilters, getYears, getPrices } from "@/lib/api";
 
 // export const dynamic = "force-dynamic";
@@ -30,8 +30,8 @@ export default async function HomePage() {
       <BrowseByType types={bodyTypes}/>
 
       <PromoSection />
-      <AvailableStocks cars={formattedCars.cars} brands={brands}
-      countries={mockCountries} prices={prices}/>
+      <AvailableStocks cars={formattedCars.cars} {...filters}
+      countriesByRegion={countriesByRegion} prices={prices}/>
 
     </div>
   );

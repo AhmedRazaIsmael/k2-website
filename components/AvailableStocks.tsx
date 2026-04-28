@@ -2,19 +2,31 @@
 import CarCard from "@/components/CarCard";
 import RightSidebar from "@/components/RightSidebar";
 import Link from "next/link";
+import { getCountryCode } from "@/lib/country";
+import { useState } from "react";
 
 export default function AvailableStocks({
   cars = [],
   brands = [],
   prices = [],
-  countries = [],
+  countriesByRegion = [],
+  locations = [],
 }: any) {
+
+    const accordionRegions = ["Gulf Region", "Carribean", "Others"];
+    const [openRegions, setOpenRegions] = useState<any>({});
+    const toggleRegion = (region: string) => {
+    setOpenRegions((prev: any) => ({
+        ...prev,
+        [region]: !prev[region],
+    }));
+    };
   return (
     <section className="py-10">
       <div className="w-full mx-auto px-6 md:px-12">
 
         {/* Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-[260px_1fr_260px] gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr_220px] gap-5">
 
           {/* LEFT SIDEBAR */}
           {/* <div className="hidden lg:block bg-white rounded-xl p-4">
@@ -33,7 +45,7 @@ export default function AvailableStocks({
             </div>
           </div> */}
 
-          <RightSidebar brands={brands} prices={prices}/>
+          <RightSidebar brands={brands} prices={prices} locations={locations}/>
 
           {/* CENTER GRID */}
 
@@ -85,16 +97,82 @@ export default function AvailableStocks({
           
 
           {/* RIGHT SIDEBAR */}
-          <div className="hidden lg:block bg-white rounded-xl p-4 ">
-            <h3 className="font-semibold mb-3 text-[20px]">Search By Countries</h3>
-            <hr />
-            <br/>
-            <div className="space-y-2 text-sm">
-              {countries.map((c: any) => (
-                <div key={c.id} className="font-[500]">{c.name}</div>
-              ))}
+
+          <div className="hidden lg:block bg-white rounded-xl p-4">
+
+            <h3 className="font-semibold mb-3 text-[20px]">
+                Search By Countries
+            </h3>
+
+            <hr className="mb-4 h-[2px] bg-[#dee2e6] border-0" />
+
+            {Object.entries(countriesByRegion).map(([region, countries]) => {
+            const isAccordion = accordionRegions.includes(region);
+            const isOpen = openRegions[region];
+
+            return (
+                <div key={region} className="mb-4">
+
+                {/* 🔥 REGION TITLE */}
+                <div
+                    onClick={() => isAccordion && toggleRegion(region)}
+                    className={`flex items-center justify-between font-semibold text-[16px] mb-3 text-gray-700 ${
+                    isAccordion ? "cursor-pointer" : ""
+                    }`}
+                >
+                    <span>{region}</span>
+
+                    {/* 🔽 Arrow only for accordion */}
+                    {isAccordion && (
+                    <span className={`transition ${isOpen ? "rotate-180" : ""}`}>
+                        <img src="/arrow.png" alt="" />
+                    </span>
+                    )}
+                </div>
+
+                {/* 🔥 COUNTRIES */}
+                {(!isAccordion || isOpen) && (
+                    <div className="space-y-2 text-sm">
+                    {(countries as any[]).map((c: any) => (
+                        <div
+                        key={c.slug}
+                        className="flex items-center gap-2 pb-1 transition"
+                        >
+                        <a
+                            href={`/cars-in-stock?location=${c.slug}`}
+                            className="flex gap-2 items-center"
+                        >
+                            {/* FLAG */}
+                            <img
+                            src={
+                                c.code
+                                ? `https://flagcdn.com/w80/${c.code}.png`
+                                : `https://flagcdn.com/w80/${getCountryCode(c.name)}.png`
+                            }
+                            alt={c.name}
+                            className="w-7 h-5 object-fill border rounded-[4px] border-[#dee2e6]"
+                            />
+
+                            {/* NAME */}
+                            <span className="font-medium text-[#666666] hover:text-green-600">
+                            {c.name}
+                            </span>
+                        </a>
+                        </div>
+                    ))}
+                    </div>
+                )}
+
+                <hr className="mt-4 h-[2px] bg-[#dee2e6] border-0" />
+                </div>
+            );
+            })}
+
+            <div>
+                <Link href="/cars-in-stock?brand=toyota"><img src="/festival.png" alt="Toyota Festival" className="w-full" /></Link>
             </div>
-          </div>
+            </div>
+            
 
         </div>
       </div>

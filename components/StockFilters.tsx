@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function StockFilters({
   brands = [],
@@ -42,25 +42,95 @@ export default function StockFilters({
         model: "",
         steering: "",
         "body-type": "",
+        fuel: "",
         drive: "",
         transmission: "",
-        year_from: "",
-        year_to: "",
+        color: "",
+        location: "",
+        min_year: "",
+        max_year: "",
         min_price: "",
         max_price: "",
+        min_mileage: "",
+        max_mileage: "",
+        min_cc: "",
+        max_cc: "",
     });
+
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+    const newFilters: any = {};
+
+    searchParams.forEach((value, key) => {
+        newFilters[key] = value;
+    });
+
+    setFilters((prev: any) => ({
+        ...prev,
+        ...newFilters,
+    }));
+
+    // 🔥 also sync brand dropdown
+    if (newFilters.make) {
+        setSelectedBrand(newFilters.make);
+    }
+    }, [searchParams]);
+
+    useEffect(() => {
+    const loadModels = async () => {
+        if (!filters.make) return;
+
+        const selected = brands.find((b: any) => b.slug === filters.make);
+        if (!selected) return;
+
+        const res = await fetch(
+        `https://floralwhite-echidna-890292.hostingersite.com/api/filters?models&brand_id=${selected.id}`
+        );
+
+        const data = await res.json();
+        setModels(data.models || []);
+    };
+
+    loadModels();
+    }, [filters.make]);
     
+    // const handleBrandChange = async (e: any) => {
+    // const brandSlug = e.target.value;
+
+    // // ✅ update filters
+    // setFilters((prev: any) => ({
+    //     ...prev,
+    //     make: brandSlug,
+    //     model: "", // reset model
+    // }));
+
+    // setSelectedBrand(brandSlug);
+
+    // if (!brandSlug) {
+    //     setModels([]);
+    //     return;
+    // }
+
+    // const selected = brands.find((b: any) => b.slug === brandSlug);
+    // if (!selected) return;
+
+    // const res = await fetch(
+    //     `https://floralwhite-echidna-890292.hostingersite.com/api/filters?models&brand_id=${selected.id}`
+    // );
+
+    // const data = await res.json();
+    // setModels(data.models || []);
+    // };
+
     const handleBrandChange = async (e: any) => {
     const brandSlug = e.target.value;
 
-    // ✅ update filters
     setFilters((prev: any) => ({
         ...prev,
         make: brandSlug,
-        model: "", // reset model
+        model: "",
     }));
-
-    setSelectedBrand(brandSlug);
 
     if (!brandSlug) {
         setModels([]);
@@ -77,7 +147,6 @@ export default function StockFilters({
     const data = await res.json();
     setModels(data.models || []);
     };
-
     const handleChange = (key: string, value: any) => {
     setFilters((prev: any) => ({
         ...prev,
@@ -91,10 +160,10 @@ export default function StockFilters({
       <form onSubmit={handleSubmit}>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
 
           {/* Row 1 */}
-          <select name="make" className="filter" value={selectedBrand}
+          <select name="make" className="filter" value={filters.make}
   onChange={handleBrandChange}>
             <option value="">Maker</option>
             {brands.map((b: any) => (
@@ -114,7 +183,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="steering" className="filter">
+          <select name="steering" className="filter" value={filters.steering}
+  onChange={(e) => handleChange("steering", e.target.value)}>
             <option value="">Steering</option>
             {steering.map((s: any) => (
                 <option key={s.id} value={s.slug}>
@@ -123,7 +193,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="body-type" className="filter">
+          <select name="body-type" className="filter" value={filters["body-type"]}
+  onChange={(e) => handleChange("body-type", e.target.value)}>
             <option value="">Body Type</option>
             {bodyTypes.map((b: any) => (
                 <option key={b.id} value={b.slug}>
@@ -132,7 +203,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="fuel" className="filter">
+          <select name="fuel" className="filter" value={filters.fuel}
+  onChange={(e) => handleChange("fuel", e.target.value)}>
             <option value="">Fuel</option>
             {fuel.map((fuel: any) => (
                 <option key={fuel.id} value={fuel.slug}>
@@ -141,7 +213,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="drive" className="filter">
+          <select name="drive" className="filter" value={filters.drive}
+  onChange={(e) => handleChange("drive", e.target.value)}>
             <option value="">Drive</option>
             {drives.map((d: any) => (
                 <option key={d.id} value={d.slug}>
@@ -151,7 +224,8 @@ export default function StockFilters({
           </select>
 
           {/* Row 2 */}
-          <select name="transmission" className="filter">
+          <select name="transmission" className="filter" value={filters.transmission}
+  onChange={(e) => handleChange("transmission", e.target.value)}>
             <option value="">Transmission</option>
             {transmissions.map((t: any) => (
                 <option key={t.id} value={t.slug}>
@@ -160,7 +234,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="color" className="filter">
+          <select name="color" className="filter" value={filters.color}
+  onChange={(e) => handleChange("color", e.target.value)}>
             <option value="">Color</option>
             {colors.map((color: any) => (
                 <option key={color.id} value={color.slug}>
@@ -169,7 +244,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="location" className="filter">
+          <select name="location" className="filter" value={filters.location}
+  onChange={(e) => handleChange("location", e.target.value)}>
             <option value="">Location</option>
             {locations.map((location: any) => (
                 <option key={location.id} value={location.slug}>
@@ -178,7 +254,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="min_year" className="filter">
+          <select name="min_year" className="filter" value={filters.min_year}
+  onChange={(e) => handleChange("min_year", e.target.value)}>
             <option value="">Year From</option>
             {startYears.map((year: number) => (
                   <option key={year} value={year}>
@@ -187,7 +264,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="max_year" className="filter">
+          <select name="max_year" className="filter" value={filters.max_year}
+  onChange={(e) => handleChange("max_year", e.target.value)}>
             <option value="">Year To</option>
             {endYears.map((year: number) => (
                   <option key={year} value={year}>
@@ -196,7 +274,8 @@ export default function StockFilters({
             ))}
           </select>
 
-          <select name="min_price" className="filter">
+          <select name="min_price" className="filter" value={filters.min_price}
+  onChange={(e) => handleChange("min_price", e.target.value)}>
             <option value="">Price Min</option>
             <option value="500">$500</option>
             <option value="1000">$1,000</option>
@@ -218,7 +297,8 @@ export default function StockFilters({
           </select>
 
           {/* Row 3 */}
-          <select name="max_price" className="filter">
+          <select name="max_price" className="filter" value={filters.max_price}
+  onChange={(e) => handleChange("max_price", e.target.value)}>
             <option value="">Price Max</option>
             <option value="20000">$20,000</option>
             <option value="15000">$15,000</option>
@@ -239,7 +319,8 @@ export default function StockFilters({
             <option value="500">$500</option>
           </select>
 
-          <select name="min_mileage" className="filter">
+          <select name="min_mileage" className="filter" value={filters.min_mileage}
+  onChange={(e) => handleChange("min_mileage", e.target.value)}>
             <option value="">Mileage Min</option>
             <option value="10000">10,000 km</option>
             <option value="20000">20,000 km</option>
@@ -256,7 +337,8 @@ export default function StockFilters({
             <option value="300000">300,000 km</option>
           </select>
 
-          <select name="max_mileage" className="filter">
+          <select name="max_mileage" className="filter" value={filters.max_mileage}
+  onChange={(e) => handleChange("max_mileage", e.target.value)}>
             <option value="">Mileage Max</option>
             <option value="300000">300,000 km</option>
             <option value="200000">200,000 km</option>
@@ -273,7 +355,8 @@ export default function StockFilters({
             <option value="10000">10,000 km</option>
           </select>
 
-          <select name="min_cc" className="filter">
+          <select name="min_cc" className="filter" value={filters.min_cc}
+  onChange={(e) => handleChange("min_cc", e.target.value)}>
             <option value="">CC Min</option>
             <option value="660">660 cc</option>
             <option value="1000">1000 cc</option>
@@ -284,7 +367,8 @@ export default function StockFilters({
             <option value="4000">4000 cc</option>
           </select>
 
-          <select name="max_cc" className="filter">
+          <select name="max_cc" className="filter" value={filters.max_cc}
+  onChange={(e) => handleChange("max_cc", e.target.value)}>
             <option value="">CC Max</option>
             <option value="4000">4000 cc</option>
             <option value="2500">2500 cc</option>
@@ -306,14 +390,14 @@ export default function StockFilters({
           <button
             type="button"
             onClick={handleReset}
-            className="px-7 md:px-25 py-2 rounded-md border border-white text-white text-sm hover:bg-white hover:text-black transition"
+            className="px-7 md:px-25 py-2 rounded-md border border-white text-white text-sm hover:bg-white hover:text-black transition cursor-pointer"
           >
             Reset
           </button>
 
           <button
             type="submit"
-            className="px-7 md:px-25 py-2 rounded-md bg-black text-white text-sm hover:bg-gray-800 transition"
+            className="px-7 md:px-25 py-2 rounded-md bg-black text-white text-sm hover:bg-gray-800 transition cursor-pointer"
           >
             Search
           </button>

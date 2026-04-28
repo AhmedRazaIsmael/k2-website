@@ -82,7 +82,7 @@ export default function CarCard({ car }: any) {
         >
         Buy Now
         </Link>
-        <a href="http://"><img src="/whatsapp.png"/></a>
+        <Link href="https://whatsapp.com"><img src="/whatsapp.png"/></Link>
       </div>
     </div>
   );

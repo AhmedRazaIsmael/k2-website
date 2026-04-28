@@ -31,7 +31,7 @@ export default function VerticalCard({ car }: any) {
                 >
                 Inquire Now
                 </Link>
-                <a href="http://"><img src="/whatsapp.png"/></a>
+                <Link href="https://whatsapp.com"><img src="/whatsapp.png"/></Link>
             </div>
 
         </div>
@@ -51,7 +51,7 @@ export default function VerticalCard({ car }: any) {
               </h3>
 
               <span className="text-[14px] flex items-center text-gray-500">
-                <span className="mr-2"><img className="border rounded-[4px]" src={`https://flagcdn.com/w20/${getCountryCode(car.location)}.png`} alt={car.location} /></span> <span>{car.location}</span>
+                <span className="mr-2"><img className="w-8 h-5 border rounded-[4px]" src={`https://flagcdn.com/w40/${getCountryCode(car.location)}.png`} alt={car.location} /></span> <span>{car.location}</span>
               </span>
             </div>
 

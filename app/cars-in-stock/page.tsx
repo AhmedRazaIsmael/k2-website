@@ -24,7 +24,7 @@ export default async function CarsInStockPage({ searchParams }: any) {
 
         {/* 🟢 LEFT SIDEBAR */}
         <div className="w-[260px] hidden lg:block">
-          <RightSidebar brands={brands} prices={prices}/>
+          <RightSidebar {...filters} prices={prices}/>
         </div>
 
         {/* 🔵 MAIN CONTENT */}
