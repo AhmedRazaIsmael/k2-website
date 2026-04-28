@@ -50,7 +50,7 @@ export default async function RootLayout({
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       />
     </head>
-      <body className={`${baiJamjuree.className} min-h-full flex flex-col`}>
+      <body className={`${baiJamjuree.className} min-h-full flex flex-col bg-white`}>
 
         {/* ✅ Global Header */}
         <div className="absolute top-0 left-0 w-full z-50">
