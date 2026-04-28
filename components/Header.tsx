@@ -2,10 +2,19 @@
 
 import { useState } from "react";
 import { Menu, X, Search, Phone, MapPin, User } from "lucide-react";
+import { useRouter } from "next/navigation";
 import JSTTime from "@/components/JSTTime";
 
 export default function Header({ totalStock = 0 }: any) {
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const router = useRouter();
+
+  const handleSearch = () => {
+    if (!query.trim()) return;
+
+    router.push(`/cars-in-stock?search=${encodeURIComponent(query)}`);
+  };
 
   return (
     <header className="w-full text-white">
@@ -70,13 +79,19 @@ export default function Header({ totalStock = 0 }: any) {
         <div className="hidden md:flex items-center bg-[#f1f1f1] rounded-md px-2 py-1 w-[320px]">
 
         <input
-            type="text"
-            placeholder="Search for Cars Model"
-            className="flex-1 bg-transparent px-3 py-2 text-[14px] text-black placeholder:text-gray-500 outline-none"
+          type="text"
+          placeholder="Search for Cars Model"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+          className="flex-1 bg-transparent px-3 py-2 text-[14px] text-black placeholder:text-gray-500 outline-none"
         />
 
-        <button className="bg-[#498840] rounded-md p-2 flex items-center justify-center">
-            <Search size={16} className="text-white" />
+        <button
+          onClick={handleSearch}
+          className="bg-[#498840] p-2 flex rounded-md cursor-pointer items-center justify-center"
+        >
+          <Search size={16} className="text-white" />
         </button>
 
         </div>
@@ -102,10 +117,13 @@ export default function Header({ totalStock = 0 }: any) {
 
           <div className="flex bg-white rounded-md overflow-hidden">
             <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
               className="px-4 py-2 w-full text-black outline-none"
               placeholder="Search for Cars Model"
             />
-            <button className="bg-[#498840] px-4">
+            <button onClick={handleSearch} className="bg-[#498840] px-4">
               <Search size={18} />
             </button>
           </div>
