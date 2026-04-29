@@ -33,7 +33,7 @@ export default async function RootLayout({
 
   const res = await fetch(
     "https://floralwhite-echidna-890292.hostingersite.com/api/vehicles-count",
-    { cache: "no-store" }
+    { next: { revalidate: 60 } }
   );
 
   const data = await res.json();
