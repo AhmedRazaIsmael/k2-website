@@ -2,7 +2,7 @@ const BASE_URL = "https://floralwhite-echidna-890292.hostingersite.com/api";
 
 export async function getBrands() {
   const res = await fetch(
-    "https://floralwhite-echidna-890292.hostingersite.com/api/filters?brands",
+    `${BASE_URL}/filters?brands`,
     { next: { revalidate: 60 }},
   );
 
@@ -12,7 +12,7 @@ export async function getBrands() {
 
 export async function getPrices() {
   const res = await fetch(
-    "https://floralwhite-echidna-890292.hostingersite.com/api/filters?price",
+    `${BASE_URL}/filters?price`,
     { next: { revalidate: 60 }},
   );
 
@@ -197,7 +197,7 @@ export async function getVehicles(params: any = {}) {
 //   console.log("👉 FINAL QUERY:", query.toString());
 
   const res = await fetch(
-    `https://floralwhite-echidna-890292.hostingersite.com/api/vehicles?${query.toString()}`,
+    `${BASE_URL}/vehicles?${query.toString()}`,
     { next: { revalidate: 60 }},
   );
 
@@ -256,7 +256,7 @@ export async function getVehicles(params: any = {}) {
 
 export async function getBodyTypes() {
   const res = await fetch(
-    "https://floralwhite-echidna-890292.hostingersite.com/api/filters?attribute[body-type]",
+    `${BASE_URL}/filters?attribute[body-type]`,
     { next: { revalidate: 60 }},
   );
 
@@ -346,7 +346,7 @@ export async function getAllFilters() {
 
 export async function getYears() {
   const res = await fetch(
-    "https://floralwhite-echidna-890292.hostingersite.com/api/filters?year",
+    `${BASE_URL}/filters?year`,
     { next: { revalidate: 60 } }
   );
 
@@ -356,7 +356,7 @@ export async function getYears() {
 
 export async function getVehicleBySlug(slug: string) {
   const res = await fetch(
-  `https://floralwhite-echidna-890292.hostingersite.com/api/vehicles/${slug}`,
+  `${BASE_URL}/vehicles/${slug}`,
   {
     next: { revalidate: 60 },
     headers: {
@@ -446,7 +446,7 @@ export async function getVehicleBySlug(slug: string) {
 
 export async function getRelatedVehicles(slug: string) {
   const res = await fetch(
-    `https://floralwhite-echidna-890292.hostingersite.com/api/vehicles/${slug}/related`,
+    `${BASE_URL}/vehicles/${slug}/related`,
     {
       next: { revalidate: 60 },
     }
