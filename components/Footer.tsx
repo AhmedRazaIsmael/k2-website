@@ -27,7 +27,7 @@ export default function Footer() {
 
           <ul className="space-y-2 text-sm text-white/80">
             <li className="hover:text-white"><Link href="/about-us">About Us</Link></li>
-            <li className="hover:text-white"><Link href="/about-us">How to buy</Link></li>
+            <li className="hover:text-white"><Link href="/how-to-buy">How to buy</Link></li>
             <li className="hover:text-white"><Link href="/cars-in-stock">Cars In Stock</Link></li>
             <li className="hover:text-white"><Link href="/contact-us">Contact</Link></li>
           </ul>
@@ -39,9 +39,9 @@ export default function Footer() {
 
           <ul className="space-y-2 text-sm text-white/80">
             <li className="hover:text-white"><Link href="/bank-details">Bank Details</Link></li>
-            <li className="hover:text-white"><Link href="/about-us">FAQs</Link></li>
-            <li className="hover:text-white"><Link href="/about-us">Privacy Policy</Link></li>
-            <li className="hover:text-white"><Link href="/about-us">Terms & Conditions</Link></li>
+            <li className="hover:text-white"><Link href="/faqs">FAQs</Link></li>
+            <li className="hover:text-white"><Link href="/privacy-policy">Privacy Policy</Link></li>
+            <li className="hover:text-white"><Link href="/terms-and-conditions">Terms & Conditions</Link></li>
           </ul>
         </div>
 
@@ -61,12 +61,12 @@ export default function Footer() {
 
             <div className="flex items-center gap-2">
               <Mail size={14} />
-              <span className="hover:underline"><Link href="mailto:cs@thehtml.com">cs@thehtml.com</Link></span>
+              <span className="hover:underline"><Link href="mailto:cs@theK2.com">cs@theK2.com</Link></span>
             </div>
 
             <div className="flex items-center gap-2">
               <Mail size={14} />
-              <span className="hover:underline"><Link href="mailto:talkto@thehtml.com">talkto@thehtml.com</Link></span>
+              <span className="hover:underline"><Link href="mailto:talkto@theK2.com">talkto@theK2.com</Link></span>
             </div>
 
             <div className="flex items-center gap-2">
