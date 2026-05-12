@@ -17,7 +17,7 @@ export default async function Page({ params }: any) {
       <div className="my-10">
         <div className="h-28 md:h-22 bg-[#000]"></div>
         <StockDetail car={car} />
-        <QuoteForm />
+        <QuoteForm vehicleId={car.id}/>
         <RelatedVehicles cars={relatedCars}/>
       </div>
     );

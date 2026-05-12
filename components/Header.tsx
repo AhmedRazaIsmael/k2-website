@@ -72,7 +72,7 @@ export default function Header({ totalStock = 0 }: any) {
           <Link href="/about-us" className="hover:text-green-400 transition">About Us</Link>
           <Link href="/cars-in-stock" className="hover:text-green-400 transition">Cars In Stock</Link>
           <Link href="/auto-parts" className="hover:text-green-400 transition">Auto Parts</Link>
-          <Link href="#" className="hover:text-green-400 transition">Auction</Link>
+          <Link href="/auction" className="hover:text-green-400 transition">Auction</Link>
           <Link href="/contact-us" className="hover:text-green-400 transition">Contact Us</Link>
         </nav>
 
@@ -112,7 +112,7 @@ export default function Header({ totalStock = 0 }: any) {
             <Link href="/about-us" className="block">About Us</Link>
             <Link href="/cars-in-stock" className="block">Cars In Stock</Link>
             <Link href="/auto-parts" className="block">Auto Parts</Link>
-            <Link href="#" className="block">Auction</Link>
+            <Link href="/auction" className="block">Auction</Link>
             <Link href="/contact-us" className="block">Contact Us</Link>
           </nav>
 

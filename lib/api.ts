@@ -488,3 +488,46 @@ export async function getRelatedVehicles(slug: string) {
 
   return formattedCars;
 }
+
+// 🔥 GET COUNTRIES
+export async function getCountries() {
+  const res = await fetch(`${BASE_URL}/countries`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch countries");
+  }
+
+  return res.json();
+}
+
+// 🔥 GET PORTS
+export async function getPorts(countryId: string) {
+  const res = await fetch(
+    `${BASE_URL}/ports?country_id=${countryId}`
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch ports");
+  }
+
+  return res.json();
+}
+
+// 🔥 SUBMIT INQUIRY
+export async function submitInquiry(payload: any) {
+  const res = await fetch(`${BASE_URL}/inquiries`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message || "Failed to submit inquiry");
+  }
+
+  return data;
+}

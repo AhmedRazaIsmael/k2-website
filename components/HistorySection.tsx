@@ -14,7 +14,7 @@ export default function HistorySection() {
             </h2>
 
             <p className="mt-4 text-[16px] md:text-[18px] leading-[1.8] text-[#7a7a7a] max-w-[520px]">
-              TML Global was founded with the goal of providing an exceptional car buying experience.
+              K2 Global was founded with the goal of providing an exceptional car buying experience.
               Over the years, we have grown to become a leading provider of quality used cars,
               serving customers across various regions. Our commitment has earned the trust of satisfied customers.
             </p>
@@ -27,7 +27,7 @@ export default function HistorySection() {
             </h2>
 
             <p className="mt-4 text-[16px] md:text-[18px] leading-[1.8] text-[#7a7a7a] max-w-[520px]">
-              With over 10,000 cars sold, TML Global has earned the trust of thousands of satisfied customers.
+              With over 10,000 cars sold, K2 Global has earned the trust of thousands of satisfied customers.
               Our commitment to quality, affordability, and service has made us a leading name in the used car market.
             </p>
           </div>

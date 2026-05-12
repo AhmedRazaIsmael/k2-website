@@ -16,7 +16,7 @@ export default function DismantlingSection() {
     <section className="py-1 md:py-16 px-6 md:px-12">
 
       <div className="max-w-[1280px] mx-auto">
-
+ 
         {/* 🔥 HEADING */}
         <div className="text-center mb-10">
           <h2 className="text-[22px] md:text-[36px] font-bold text-[#333]">
@@ -83,7 +83,7 @@ export default function DismantlingSection() {
                 OUR COMMITMENT
               </h2> */}
 
-              <p className="mt-4 text-[14px] md:text-[16px] leading-relaxedtext-white/90 md:max-w-lg mb-4">On the customer’s request TML Global staff can also place bids and purchase cars on their own. We purchase cars from usual auctions as well as from recycle car auctions. Some single parts could be also purchased from sources like yahoo auctions etc.</p>
+              <p className="mt-4 text-[14px] md:text-[16px] leading-relaxedtext-white/90 md:max-w-lg mb-4">On the customer’s request K2 Global staff can also place bids and purchase cars on their own. We purchase cars from usual auctions as well as from recycle car auctions. Some single parts could be also purchased from sources like yahoo auctions etc.</p>
 <p className="mb-4">Once the car arrives in our yard, we upload 30-40 photos of your car to customers’ personal page and the video of the engine working.</p>
 <p className="mb-4">We start to dismantle once all cars for the container are collected in our yard. Dismantle is done based on your request. Based on difficulty our staff dismantle 5-10 cars daily.</p>
 <p className="font-semibold">Usually container waiting time in Japan after the loading is 1 week. Transit time by ship depends on the country of the destination. Average 30-35 days.</p>

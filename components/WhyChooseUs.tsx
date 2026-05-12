@@ -34,7 +34,7 @@ export default function WhyChooseUs() {
 
             {/* Heading */}
             <h2 className="text-[22px] md:text-[36px] font-bold text-[#2c2c2c] tracking-[0.3px] mb-10">
-              WHY CHOOSE TML GLOBAL?
+              WHY CHOOSE K2 Global?
             </h2>
 
             {/* Features Grid */}

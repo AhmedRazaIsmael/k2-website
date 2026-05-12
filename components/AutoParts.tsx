@@ -17,11 +17,11 @@ export default function AutoPartsSection() {
           </p>
 
           <p className="mt-3 text-[16px] text-[#5a9444] font-semibold">
-            TML Global Is Your One Stop for Quality Scrap Cars and Parts
+            K2 Global Is Your One Stop for Quality Scrap Cars and Parts
           </p>
 
           <p className="mt-4 text-[16px] text-[#212529] leading-relaxed">
-            At TML Global, we offer an extensive range of scrap cars from which
+            At K2 Global, we offer an extensive range of scrap cars from which
             you can purchase spare parts or complete engine sets.
           </p>
 
@@ -41,7 +41,7 @@ export default function AutoPartsSection() {
 
           <p className="mt-3 text-[16px] text-[#212529] leading-relaxed">
             Dismantling, packaging parts and loading them into containers is
-            conducted in Toyama dismantling yard of TML Global.
+            conducted in Toyama dismantling yard of K2 Global.
           </p>
 
           {/* BUTTON */}

@@ -1,8 +1,90 @@
 "use client";
 
 import { MapPin, Phone, Mail } from "lucide-react";
+import { useState } from "react";
+import { submitInquiry } from "@/lib/api";
 
 export default function ContactSection() {
+  const [loading, setLoading] = useState(false);
+
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+
+      setSuccessMessage("");
+      setErrorMessage("");
+
+      await submitInquiry({
+        vehicle_id: null,
+        country_id: null,
+        port_id: null,
+
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+
+        message: form.message,
+
+        receive_promotions: false,
+      });
+
+      setSuccessMessage(
+        "Inquiry has been submitted successfully."
+      );
+
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
+
+    } catch (error: any) {
+      setErrorMessage(
+        error.message ||
+          "Something went wrong. Please try again."
+      );
+
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 5000);
+
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <section className="py-16 px-6 md:px-12">
 
@@ -25,11 +107,14 @@ export default function ContactSection() {
           {/* 🟢 LEFT FORM */}
           <div>
 
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
 
               {/* Name */}
               <input
                 type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
                 placeholder="Enter Your Name"
                 className="w-full h-[46px] px-4 rounded-md border border-[#ddd] text-[14px] outline-none focus:ring-1 focus:ring-green-500"
               />
@@ -38,12 +123,18 @@ export default function ContactSection() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <input
                   type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
                   placeholder="Enter Your Email"
                   className="w-full h-[46px] px-4 rounded-md border border-[#ddd] text-[14px] outline-none focus:ring-1 focus:ring-green-500"
                 />
 
                 <input
-                  type="text"
+                  type="number"
+                  name="phone"
+                  value={form.phone}
+                  onChange={handleChange}
                   placeholder="Enter Your Number"
                   className="w-full h-[46px] px-4 rounded-md border border-[#ddd] text-[14px] outline-none focus:ring-1 focus:ring-green-500"
                 />
@@ -52,16 +143,40 @@ export default function ContactSection() {
               {/* Message */}
               <textarea
                 placeholder="Type Message"
+                name="message"
+                value={form.message}
+                onChange={handleChange}
                 rows={5}
                 className="w-full px-4 py-3 rounded-md border border-[#ddd] text-[14px] outline-none focus:ring-1 focus:ring-green-500 resize-none"
               />
 
+              {successMessage && (
+                <div
+                  className="bg-[#e8f7e8] border border-[#5a9444]
+                  text-[#2f7d32] text-[14px]
+                  rounded-md px-4 py-3"
+                >
+                  {successMessage}
+                </div>
+              )}
+
+              {errorMessage && (
+                <div
+                  className="bg-[#fdeaea] border border-[#d93025]
+                  text-[#d93025] text-[14px]
+                  rounded-md px-4 py-3"
+                >
+                  {errorMessage}
+                </div>
+              )}
+
               {/* Button */}
               <button
                 type="submit"
-                className="w-full h-[46px] bg-[#4f8f46] hover:bg-[#3f7738] text-white text-[14px] rounded-md transition"
+                disabled={loading}
+                className="w-full h-[46px] bg-[#4f8f46] hover:bg-[#3f7738] text-white text-[14px] rounded-md transition cursor-pointer"
               >
-                Search
+                {loading ? "Submitting..." : "SUBMIT"}
               </button>
 
             </form>
