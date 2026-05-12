@@ -174,7 +174,7 @@ export default function ContactSection() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full h-[46px] bg-[#4f8f46] hover:bg-[#3f7738] text-white text-[14px] rounded-md transition cursor-pointer"
+                className="w-full h-[46px] bg-[#4f8f46] hover:bg-[#3f7738] text-white font-semibold text-[16px] rounded-md transition cursor-pointer"
               >
                 {loading ? "Submitting..." : "SUBMIT"}
               </button>
