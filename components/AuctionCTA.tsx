@@ -31,7 +31,7 @@ export default function AuctionCTA() {
         <div className="mt-7">
 
           <Link
-            href="/contact"
+            href="/contact-us"
             className="inline-flex items-center justify-center
             min-w-[180px] h-[48px]
             px-8 rounded-[4px]

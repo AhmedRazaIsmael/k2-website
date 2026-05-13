@@ -18,7 +18,7 @@ Live Auction Service.
           </p>
 
           {/* BUTTON */}
-          <Link className="mt-6 flex items-center justify-center w-68 gap-2 bg-[#5a9444] text-white px-5 py-2.5 rounded-md text-[14px] hover:bg-green-700 transition" href="">
+          <Link className="mt-6 flex items-center justify-center w-68 gap-2 bg-[#5a9444] text-white px-5 py-2.5 rounded-md text-[14px] hover:bg-green-700 transition" href="/contact-us">
             <span></span> Inquiry
           </Link>
         </div>
