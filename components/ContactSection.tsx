@@ -235,10 +235,10 @@ export default function ContactSection() {
                   Email:
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  cs@html.com
+                  cs@theK2.com
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  talkto@html.com
+                  talkto@theK2.com
                 </p>
               </div>
             </div>
