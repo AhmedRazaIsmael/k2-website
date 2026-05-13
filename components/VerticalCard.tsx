@@ -50,7 +50,7 @@ export default function VerticalCard({ car }: any) {
                 >
                 Inquire Now
                 </Link>
-                <Link href="https://whatsapp.com"><img src="/whatsapp.png"/></Link>
+                <Link href={`https://wa.me/+818058510923?text=Hi K2 Global, I am interested in your stock *${car.title}* having reference number *${car.stock}*.Kindly contact me at your earliest convenience regarding this vehicle. Thank you.`} target="_blank"><img src="/whatsapp.png"/></Link>
             </div>
 
         </div>
