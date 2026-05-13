@@ -21,6 +21,25 @@ export default function VerticalCard({ car }: any) {
             <span className="absolute bottom-2 left-2 text-[10px] bg-black/70 text-white px-2 py-[2px] rounded">
                 Ref# {car.stock}
             </span>
+
+            {car.status !== "available" && (
+              <div className="absolute top-0 left-0 overflow-hidden w-[120px] h-[120px]">
+
+                  <span
+                  className={`absolute top-[22px] left-[-44px] w-[150px] text-center rotate-[-45deg] text-white text-xs font-semibold py-1 shadow-md
+                  ${
+                      car.status === "reserved"
+                      ? "bg-green-600"
+                      : car.status === "sold"
+                      ? "bg-red-600"
+                      : ""
+                  }`}
+                  >
+                  {car.status.toUpperCase()}
+                  </span>
+
+              </div>
+              )}
           </div>
 
           {/* CTA */}

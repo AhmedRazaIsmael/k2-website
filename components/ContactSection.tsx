@@ -3,6 +3,7 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import { useState } from "react";
 import { submitInquiry } from "@/lib/api";
+import Link from "next/link";
 
 export default function ContactSection() {
   const [loading, setLoading] = useState(false);
@@ -219,7 +220,7 @@ export default function ContactSection() {
                   Phone:
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  +818049875470
+                  <Link href="tel:+818058510923">+81 80-5851-0923</Link>
                 </p>
               </div>
             </div>
@@ -235,10 +236,10 @@ export default function ContactSection() {
                   Email:
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  cs@theK2.com
+                  <Link href="mailto:cs@theK2.com">cs@theK2.com</Link>
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  talkto@theK2.com
+                  <Link href="mailto:talkto@theK2.com">talkto@theK2.com</Link>
                 </p>
               </div>
             </div>
@@ -255,7 +256,7 @@ export default function ContactSection() {
 
             {/* Social Icons */}
             <div className="flex gap-4 text-black mt-10">
-              <i className="fab fa-facebook-f text-2xl"></i>
+              <Link href="https://www.facebook.com/profile.php?id=61587325870785" target="_blank"><i className="fab fa-facebook-f text-2xl"></i></Link>
               <i className="fab fa-instagram text-2xl"></i>
               <i className="fab fa-linkedin-in text-2xl"></i>
               <i className="fab fa-youtube text-2xl"></i>

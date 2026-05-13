@@ -40,8 +40,10 @@ export default function Header({ totalStock = 0 }: any) {
         {/* Right */}
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
+            <Link href="tel:+818058510923" className="flex items-center gap-2">
             <Phone size={20} className="opacity-80"/>
-            <span>+1 (281) 748-8125</span>
+            <span>+81 80-5851-0923</span>
+            </Link>
           </div>
 
           {/* <div className="flex items-center gap-2 cursor-pointer">
