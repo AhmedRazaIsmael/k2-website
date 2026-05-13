@@ -138,7 +138,7 @@ export default function AvailableStocks({
                         key={c.slug}
                         className="flex items-center gap-2 pb-1 transition"
                         >
-                        <a
+                        <Link
                             href={`/cars-in-stock?location=${c.slug}`}
                             className="flex gap-2 items-center"
                         >
@@ -157,7 +157,7 @@ export default function AvailableStocks({
                             <span className="font-medium text-[#666666] hover:text-green-600">
                             {c.name}
                             </span>
-                        </a>
+                        </Link>
                         </div>
                     ))}
                     </div>
