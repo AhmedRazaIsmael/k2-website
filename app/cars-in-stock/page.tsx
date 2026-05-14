@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import StockHero from "@/components/StockHero";
 import StockFilters from "@/components/StockFilters";
 import StockList from "@/components/StockList";

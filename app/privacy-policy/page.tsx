@@ -1,7 +1,14 @@
 "use client";
 
+import type { Metadata } from "next";
 import PrivacyHero from "@/components/PrivacyHero";
 import GetInTouch from "@/components/GetInTouch";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Learn more about The K2, our history, mission, and commitment to providing quality Japanese vehicles worldwide.",
+};
 
 export default function PrivacyPolicyPage() {
   return (

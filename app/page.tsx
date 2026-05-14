@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import BrowseByType from "@/components/BrowseByType";
@@ -9,7 +11,6 @@ import { getBrands, getVehicles, getBodyTypes, getAllFilters, getYears, getPrice
 // export const dynamic = "force-dynamic";
 export default async function HomePage() {
 
-  
   const [brands, formattedCars, bodyTypes, filters, years, prices] = await Promise.all([
     getBrands(),
     getVehicles(),

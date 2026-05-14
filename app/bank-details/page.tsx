@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
+
 import BankingInfo from "@/components/BankingInfo";
 import BankHero from "@/components/BankHero";
 import GetInTouch from "@/components/GetInTouch";
+
+export const metadata: Metadata = {
+  title: "Bank Details",
+  description:
+    "",
+};
 
 export default function Page() {
   return (

@@ -1,4 +1,5 @@
 "use client";
+import type { Metadata } from "next";
 
 import FaqHero from "@/components/FaqHero";
 import GetInTouch from "@/components/GetInTouch";
@@ -7,6 +8,12 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions",
+  description:
+    "",
+};
 
 const faqData = [
   {
