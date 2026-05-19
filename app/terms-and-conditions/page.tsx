@@ -4,6 +4,12 @@ import type { Metadata } from "next";
 import TermsHero from "@/components/TermsHero";
 import GetInTouch from "@/components/GetInTouch";
 
+export const metadata: Metadata = {
+  title: "Terms And Conditions",
+  description:
+    "Learn more about The K2, our history, mission, and commitment to providing quality Japanese vehicles worldwide.",
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="">
