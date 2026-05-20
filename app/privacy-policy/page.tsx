@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import PrivacyHero from "@/components/PrivacyHero";
 import GetInTouch from "@/components/GetInTouch";
