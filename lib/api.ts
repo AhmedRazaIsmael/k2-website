@@ -430,7 +430,7 @@ export async function getVehicleBySlug(slug: string) {
     // 🏷️ CATEGORY (important for your filters)
     category: getAttr("category") || null,
 
-    // ⭐ FEATURES (special case)
+    // FEATURES (special case)
     features: attrs
       .filter((a: any) => a.attribute.slug === "features")
       .map((a: any) => a.value?.value),
