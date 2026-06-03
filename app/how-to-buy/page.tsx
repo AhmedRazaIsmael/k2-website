@@ -1,5 +1,3 @@
-"use client";
-
 import type { Metadata } from "next";
 import HowToHero from "@/components/HowToHero";
 import GetInTouch from "@/components/GetInTouch";
