@@ -193,18 +193,18 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <p className="text-[16px] font-bold text-[#2c2c2c]">
+                {/* <p className="text-[16px] font-bold text-[#2c2c2c]">
                   USA Address:
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
                   3979 Bisley hills bend, fulshear TX 77441
-                </p>
+                </p> */}
 
                 <p className="mt-2 text-[16px] font-bold text-[#2c2c2c]">
                   Japan Address:
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  Postal code 658-0025 Hyogo ken Kobe Shi Higashi nada ku Uozaki Minami machi 1-4-17-510
+                  79-1 NANSHO CHO NARA SHI NARA KEN JAPAN
                 </p>
               </div>
             </div>

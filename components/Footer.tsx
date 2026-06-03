@@ -51,12 +51,12 @@ export default function Footer() {
 
           <div className="text-sm text-white/80 space-y-3">
 
-            <p>
+            {/* <p>
               USA Address: 3979 Bisley hills bend, fulshear TX 77441
-            </p>
+            </p> */}
 
             <p>
-              Japan Address: Postal code 658-0025 Hyogo ken Kobe Shi Higashi nada Ku Uozaki Minami machi 1-4-17-510
+              Japan Address: 79-1 NANSHO CHO NARA SHI NARA KEN JAPAN
             </p>
 
             <div className="flex items-center gap-2">
