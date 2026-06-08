@@ -80,7 +80,7 @@ const handleChange = (key: string, value: any) => {
       <div className="absolute inset-0 bg-black/60" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col md:flex-row items-start md:items-end gap-6 md:gap-0 justify-between px-6 md:px-12 pt-30">
+      <div className="relative z-10 h-full flex flex-col md:flex-row items-start md:items-end gap-6 md:gap-0 justify-between px-6 md:px-12 pt-36">
 
         {/* LEFT TEXT */}
         <div className="text-white max-w-xl">

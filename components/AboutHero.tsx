@@ -2,7 +2,7 @@
 
 export default function AboutHero() {
   return (
-    <section className="relative w-full h-[400px] md:h-[500px] overflow-hidden bg-[#000]">
+    <section className="relative w-full h-[440px] md:h-[570px] overflow-hidden bg-[#000]">
 
       {/* BACKGROUND IMAGE */}
       <div
@@ -18,7 +18,7 @@ export default function AboutHero() {
       {/* CONTENT */}
       <div className="relative z-10 h-full flex items-center px-6 md:px-12">
         <div className="text-white max-w-xl">
-          <h1 className="text-[50px] md:text-[90px] font-semibold pt-22">
+          <h1 className="text-[50px] md:text-[90px] font-semibold pt-28">
             About Us
           </h1>
 

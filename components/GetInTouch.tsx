@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function GetInTouch() {
   return (
     <section className="relative mt-10">
@@ -30,11 +32,11 @@ export default function GetInTouch() {
             <div className="mt-6 flex gap-4 flex-wrap">
 
               <button className="px-6.5 py-3 md:px-11.5 md:py-3 text-[16px] rounded-md bg-[#498840] hover:bg-[#5c8d4a] transition cursor-pointer">
-                Call Now
+                <Link href="tel:+818058510923">Call Now</Link>
               </button>
 
               <button className="px-9.5 py-3 text-[16px] rounded-md bg-[#AF1F23] hover:bg-[#a61e1e] transition cursor-pointer">
-                Email
+                <Link href="mailto:talkto@theK2.com">Email</Link>
               </button>
 
             </div>
@@ -44,7 +46,7 @@ export default function GetInTouch() {
 
       </div>
 
-      <div className="bg-gradient-to-r from-[#589243] to-[#387C3B] h-30 -mb-2 md:-mb-1"></div>
+      <div className="bg-gradient-to-r from-[#BBB8B9] to-[#BBB8B9] h-30 -mb-2 md:-mb-1"></div>
     </section>
   );
 }

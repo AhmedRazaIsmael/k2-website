@@ -55,27 +55,27 @@ export default function Header({ totalStock = 0 }: any) {
 
       {/* Main Header */}
       <div
-        className="px-6 md:px-12 py-4 flex items-center justify-between
+        className="px-6 md:px-12 py-3 flex items-center justify-between
         backdrop-blur-md border-b border-white/10
         sticky top-0 z-50"
         style={{
             background:
-            "linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(26,26,26,0.4) 40%, rgba(0,0,0,0.7) 100%)",
+            "linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0.7) 100%)",
         }}
         >
 
         {/* Logo */}
-        <Link href="/" className="cursor-pointer"><img src="/logo.png" className="h-14 object-contain" /></Link>
+        <Link href="/" className="cursor-pointer"><img src="/logo.png" className="h-22 object-contain" /></Link>
 
         <div className="flex items-center justify-between">
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 px-10 text-[16px] font-semibold">
-          <Link href="/" className="hover:text-green-400 transition">Home</Link>
-          <Link href="/about-us" className="hover:text-green-400 transition">About Us</Link>
-          <Link href="/cars-in-stock" className="hover:text-green-400 transition">Cars In Stock</Link>
-          <Link href="/auto-parts" className="hover:text-green-400 transition">Auto Parts</Link>
-          <Link href="/auction" className="hover:text-green-400 transition">Auction</Link>
-          <Link href="/contact-us" className="hover:text-green-400 transition">Contact Us</Link>
+        <nav className="hidden md:flex items-center gap-8 px-10 text-[16px] font-semibold text-black/80">
+          <Link href="/" className="hover:text-black transition">Home</Link>
+          <Link href="/about-us" className="hover:text-black transition">About Us</Link>
+          <Link href="/cars-in-stock" className="hover:text-black transition">Cars In Stock</Link>
+          <Link href="/auto-parts" className="hover:text-black transition">Auto Parts</Link>
+          <Link href="/auction" className="hover:text-black transition">Auction</Link>
+          <Link href="/contact-us" className="hover:text-black transition">Contact Us</Link>
         </nav>
 
         {/* Search */}

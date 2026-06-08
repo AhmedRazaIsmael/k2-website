@@ -220,7 +220,7 @@ export default function ContactSection() {
                   Phone:
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  <Link href="tel:+818058510923">+81 80-5851-0923</Link>
+                  <span className="hover:underline"><Link href="tel:+818058510923">+81 80-5851-0923</Link></span>
                 </p>
               </div>
             </div>
@@ -236,10 +236,10 @@ export default function ContactSection() {
                   Email:
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  <Link href="mailto:cs@theK2.com">cs@theK2.com</Link>
+                  <span className="hover:underline"><Link href="mailto:cs@theK2.com">cs@theK2.com</Link></span>
                 </p>
                 <p className="text-[16px] text-[#7a7a7a]">
-                  <Link href="mailto:talkto@theK2.com">talkto@theK2.com</Link>
+                  <span className="hover:underline"><Link href="mailto:talkto@theK2.com">talkto@theK2.com</Link></span>
                 </p>
               </div>
             </div>
